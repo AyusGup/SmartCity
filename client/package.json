@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "axios": "^1.6.0",
     "chart.js": "^4.4.0",
     "json2csv": "^6.0.0-alpha.2",
     "leaflet": "^1.9.4",

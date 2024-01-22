@@ -5,7 +5,7 @@ import Userposts from "./userPosts";
 import Footer from "./Footer";
 import io from 'socket.io-client';
 
-const socket= io.connect("http://localhost:8080")
+const socket= io.connect("https://490bj8xz-8080.inc1.devtunnels.ms")
 
 function Profile(props){
 const clearIntervalRef = useRef();
@@ -19,7 +19,7 @@ useEffect(()=>{
 
 async function getMyPosts(){
     console.log("getMyPosts");
-    const response= await fetch("http://localhost:8080/api/myPosts",{
+    const response= await fetch("https://490bj8xz-8080.inc1.devtunnels.ms/api/myPosts",{
       method: "POST" ,
       body: JSON.stringify({userToken:localStorage.getItem("customToken")}) ,
       headers:{

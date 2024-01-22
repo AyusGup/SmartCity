@@ -13,7 +13,7 @@ import { Problem } from "./problem";
 
 function Chart(props) {
   /*
-  const socket=socketIO("http://localhost:8080/")
+  const socket=socketIO("https://490bj8xz-8080.inc1.devtunnels.ms/")
   const [temp1,setTemp1]=useState([0]);
   const [temp2,setTemp2]=useState([0]);
   useEffect(()=>{
@@ -35,7 +35,7 @@ function Chart(props) {
   },[]);
 
   async function getData(){
-    const response= await fetch("http://localhost:8080/get/count",{
+    const response= await fetch("https://490bj8xz-8080.inc1.devtunnels.ms/get/count",{
       method: "GET" ,
     })
     const result = await response.json();
@@ -85,6 +85,7 @@ function Chart(props) {
       },
     ],
   }
+
 
 /*
   yearReportData.current ={
