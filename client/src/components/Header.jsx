@@ -29,7 +29,7 @@ function OffcanvasExample(props) {
 
   async function sendSms(){
     console.log("sms");
-    const response= await fetch(`https://490bj8xz-8080.inc1.devtunnels.ms/sms?lat=${loc.lat}&lng=${loc.lng}`,{
+    const response= await fetch(`http://localhost:8000/sms?lat=${loc.lat}&lng=${loc.lng}`,{
       method: "GET" ,
      })
      const result= await response.json();
