@@ -1,0 +1,106 @@
+<!DOCTYPE html >
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./App.css" />
+
+    <title>Report</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">REPORT ISSUE</h1> 
+    <form class="Form" action="http://localhost:8080/api/report" method="post">
+      
+      <div id="first">
+        <div class="components">
+          <label for="appt" >Select a time:  </label>
+          <input type="time" id="appt" name="time" >
+        </div>
+        <div class="components">
+          <textarea name="text" id="text" cols="30" style="flex-grow: 1;"></textarea>
+        </div>
+        <div class="components">
+          <select class="dropdown" name="ComplaintCases">
+            <option value="volvo">select your complaint</option>
+            <option value="Lighting issues">Lighting issues</option>
+            <option value="Safety Concerns">Safety Concerns</option>
+            <option value="Violence Report">Violence Report</option>
+            <option value="miscellaneous">Harashment, Stocking, Abusement and Molestation Cases</option>
+          </select>
+        </div>
+        <div class="components">
+          <select class="dropdown" name="ComplaintCases">
+            <option value="volvo">select your complaint seriousness</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <input value="123" name="latitude" id="lat" style="display: none;"></input>
+        <input value="456" name="longitude" id="lng" style="display: none;"></input>
+        <input
+          type="file" 
+          lable="Image"
+          name="MyFile"
+          id="file-upload"
+          accept=".jpeg, .png, .jpeg"
+          placeholder="upload"
+          onchange="handleFileUpload()"
+        />
+        <div class="components">
+          <button style="width: 100%;" type='submit' onclick="position()">Report</button>
+        </div>
+      </div>
+      <div id="map"></div>
+    </form>
+    <!-- year of report, problem, time of incident, latitude and longitude, feedback yeh chije daal dio -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <script>
+        let lat,lng;
+        const geolocation = navigator.geolocation;
+        geolocation.getCurrentPosition(position=>{
+          const {latitude , longitude} = position.coords;
+          var element1 = document.getElementById("lat");
+          var element2 = document.getElementById("lng");
+          element1.setAttribute("value",latitude);
+          element2.setAttribute("value",longitude);
+          var map = L.map('map').setView([ latitude, longitude], 13);
+
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+
+          var changedPos;
+          var marker = L.marker([latitude, longitude],{draggable:true}).addTo(map).bindPopup('Latlng(' + latitude+ ',' + " "+longitude + ')').openPopup();
+          marker.on("dragend",function(e){
+            changedPos = e.target.getLatLng();
+            const position = () =>{
+              var element1 = document.getElementById("lat");
+              var element2 = document.getElementById("lng");
+              element1.setAttribute("value",changedPos.lat);
+              element2.setAttribute("value",changedPos.lng);
+              console.log(document.getElementById("file-upload").value)
+            };
+            this.bindPopup(changedPos.toString()).openPopup();
+          });
+        })
+     </script>
+
+  </body>
+</html>
