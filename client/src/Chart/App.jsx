@@ -13,7 +13,7 @@ import { Problem } from "./problem";
 
 function Chart(props) {
   /*
-  const socket=socketIO("http://localhost:8000/")
+  const socket=socketIO("https://citypulse.onrender.com/")
   const [temp1,setTemp1]=useState([0]);
   const [temp2,setTemp2]=useState([0]);
   useEffect(()=>{
@@ -35,7 +35,7 @@ function Chart(props) {
   },[]);
 
   async function getData(){
-    const response= await fetch("http://localhost:8000/get/count",{
+    const response= await fetch("https://citypulse.onrender.com/get/count",{
       method: "GET" ,
     })
     const result = await response.json();

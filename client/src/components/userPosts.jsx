@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import Comment from "./Comment";
 import avatar from "../user.png";
 
-const socket= io.connect("http://localhost:8000")
+const socket= io.connect("https://citypulse.onrender.com")
 
 function Userposts(props) {
   const [len,setLen] = useState(1);
