@@ -13,7 +13,10 @@ function BasicExample(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/chart">Charts</Nav.Link>
-            <Nav.Link href="http://127.0.0.1:5500/Mapping/map.html">Map</Nav.Link>
+            <NavDropdown title="Map" id="basic-nav-dropdown">
+              <NavDropdown.Item href='http://127.0.0.1:5500/Mapping2/day.html'>Day time</NavDropdown.Item>
+              <NavDropdown.Item href='http://127.0.0.1:5500/Mapping2/night.html'>Night time</NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link href="/repo">Reports</Nav.Link>
           </Nav>
           <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>

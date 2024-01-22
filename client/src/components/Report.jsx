@@ -42,7 +42,7 @@ export default function App() {
     formD.current.problem = e.target[2].value;
     formD.current.seriousness = e.target[3].value;
 
-    const response= await fetch("http://localhost:8080/api/report",{
+    const response= await fetch("https://490bj8xz-8080.inc1.devtunnels.ms/api/report",{
       method: "POST",
       body: JSON.stringify({data:formD.current, customToken:localStorage.getItem("customToken")}) ,
       headers:{
