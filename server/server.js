@@ -54,6 +54,6 @@ app.use("/api",blogRoute);
 app.use("/get",adminRoute);
 app.use("/getData",dataRoute);
 
-server.listen(8080, () => {
+server.listen(8000, () => {
     console.log("server listening on port: 8080");
 })

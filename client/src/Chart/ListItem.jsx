@@ -4,7 +4,7 @@ import useState from "react";
 function Item(props){
    async function update(){
       console.log(props);
-      const response= await fetch("https://490bj8xz-8080.inc1.devtunnels.ms/getData",{
+      const response= await fetch("http://localhost:8000/getData",{
         method: "POST",
         body: JSON.stringify({"approved":true,"key":props.id}) ,
         headers:{

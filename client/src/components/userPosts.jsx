@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import Comment from "./Comment";
 import avatar from "../user.png";
 
-const socket= io.connect("https://490bj8xz-8080.inc1.devtunnels.ms")
+const socket= io.connect("http://localhost:8000")
 
 function Userposts(props) {
   const [len,setLen] = useState(1);
