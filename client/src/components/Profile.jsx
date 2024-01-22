@@ -5,7 +5,7 @@ import Userposts from "./userPosts";
 import Footer from "./Footer";
 import io from 'socket.io-client';
 
-const socket= io.connect("http://localhost:8000")
+const socket= io.connect("https://citypulse.onrender.com")
 
 function Profile(props){
 const clearIntervalRef = useRef();
@@ -19,7 +19,7 @@ useEffect(()=>{
 
 async function getMyPosts(){
     console.log("getMyPosts");
-    const response= await fetch("http://localhost:8000/api/myPosts",{
+    const response= await fetch("https://citypulse.onrender.com/api/myPosts",{
       method: "POST" ,
       body: JSON.stringify({userToken:localStorage.getItem("customToken")}) ,
       headers:{

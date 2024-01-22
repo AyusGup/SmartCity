@@ -10,7 +10,7 @@ import avatar from '../user.png';
 import ChatBot from "./ChatBot";
 import bot from "../bot.png"
 
-const socket= io.connect("http://localhost:8000")
+const socket= io.connect("https://citypulse.onrender.com")
 
 function Secret(props){
   const [notes, setNotes] = useState([]);
@@ -28,7 +28,7 @@ function Secret(props){
   }
 
   async function getDB(){
-    const response= await fetch("http://localhost:8000/api",{
+    const response= await fetch("https://citypulse.onrender.com/api",{
       method: "GET" ,
      })
      const result= await response.json();
