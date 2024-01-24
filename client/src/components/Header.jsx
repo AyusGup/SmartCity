@@ -41,7 +41,7 @@ function OffcanvasExample(props) {
   return (
     <Navbar expand="lg" id="top" className="bg-body-tertiary" sticky="top" style={{width:"100%"}}>
       <Container>
-        <Navbar.Brand>CityPulse</Navbar.Brand>
+        <Navbar.Brand>Virangna</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="me-auto">
