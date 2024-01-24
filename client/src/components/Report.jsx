@@ -42,7 +42,7 @@ export default function App() {
     formD.current.problem = e.target[2].value;
     formD.current.seriousness = e.target[3].value;
 
-    const response= await fetch("https://490bj8xz-8080.inc1.devtunnels.ms/api/report",{
+    const response= await fetch("https://citypulse.onrender.com/api/report",{
       method: "POST",
       body: JSON.stringify({data:formD.current, customToken:localStorage.getItem("customToken")}) ,
       headers:{
@@ -151,6 +151,9 @@ export default function App() {
 
   return (
     <Container style={{height:"100vh"}}>
+      <div id='reportForm'>
+        <FormView />
+      </div>
       <div className='mb-5' id='map'>
           <MapContainer
           center={[28.7041, 77.1025]}
@@ -166,9 +169,6 @@ export default function App() {
           </MapContainer>
       </div>
 
-      <div id='reportForm'>
-        <FormView />
-      </div>
     </Container>
   );
 }

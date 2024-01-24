@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 function ReportList(){
     const [notes, setNotes] = useState([]);
     async function getReport(){
-        const response= await fetch("https://490bj8xz-8080.inc1.devtunnels.ms/get/report",{
+        const response= await fetch("https://citypulse.onrender.com/get/report",{
           method: "GET" ,
          })
          const result= await response.json();

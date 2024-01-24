@@ -1,0 +1,88 @@
+{
+  "intents": [
+    {
+      "tag": "SafetyTips",
+      "patterns": [
+        "safety tips",
+        "stay safe walking alone at night?",
+        "precautions ensure my safety?"
+      ],
+      "responses": [
+        "Sure, here are some safety tips:\n1. Avoid walking alone in poorly lit areas.\n2. Stay aware of your surroundings.\n3. Share your location with a friend or family member.\n4. Trust your instincts. If something feels off, seek help immediately.\n5. Consider taking self-defense classes for added confidence."
+      ]
+    },
+    {
+      "tag": "EmergencyContact",
+      "patterns": [
+        "emergency contact number",
+        "call in case emergency?",
+        "contact of nearest police station.",
+        "help","assistance"
+      ],
+      "responses": [
+        "In case of emergency dial 011-27852203"
+      ]
+    },
+    {
+      "tag": "SelfDefense",
+      "patterns": [
+        "self-defense techniques?",
+        "protect myself?",
+        "self-defense"
+      ],
+      "responses": [
+        "Certainly, here are some self-defense tips:\n1. Learn basic self-defense techniques like blocking and striking.\n2. Carry personal safety items like pepper spray or a personal alarm.\n3. Consider taking self-defense classes at a local gym or community center. They can empower you with practical skills."
+      ]
+    },
+    {
+      "tag": "SafeRoutes",
+      "patterns": [
+        "safer routes commute?",
+        " avoid walking at night?",
+        " safe path "
+      ],
+      "responses": [
+        "You can enhance your safety by:\n1. Choosing well-lit routes with more foot traffic.\n2. Avoiding shortcuts through isolated areas.\n3. Using rideshare apps or public transportation during late hours. You can also use safety apps that suggest safer routes."
+      ]
+    },
+    {
+      "tag": "ReportingIncident",
+      "patterns": [
+        "harassment?",
+        "violated",
+        "harrased",
+        "manhandled",
+        "troubled",
+        "report incident?",
+        "report a crime ?"
+      ],
+      "responses": [
+        "If you experience harassment or a safety incident:\n1. Trust your instincts and prioritize your safety.\n2. If safe to do so, try to remember details about the person or incident.\n3. Report the incident to the police or relevant authorities. You can also reach out to local women's support organizations for assistance."
+      ]
+    },
+    
+    {
+      "tag": "Thanks",
+      "patterns": ["Thanks", "Thank you", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "Funny",
+      "patterns": [
+        "joke",
+        "funny",
+        "joke"
+      ],
+      "responses": [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "Did you hear about the mathematician who's afraid of negative numbers? He'll stop at nothing to avoid them!",
+        "What do you call a fish with no eyes? Fsh.",
+        "Parallel lines have so much in common. It's a shame they'll never meet."
+      ]
+    }
+  ]
+}
+
+
+
+

@@ -1,17 +1,19 @@
 import {useEffect, useState} from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
 import io from 'socket.io-client';
 import Comment from './Comment';
 import avatar from '../user.png';
 
-const socket= io.connect("https://490bj8xz-8080.inc1.devtunnels.ms")
+const socket= io.connect("https://citypulse.onrender.com")
 
 function Note(props) {
   const [com,setCom] = useState([]);
   const [len,setLen] = useState(2);
   const [flag,setFlag] = useState(false);
-  const [showcomment,setshowcomment] = useState(false);
+  const [isLiked,setLike] = useState(false);
   const [like,setlike] = useState(false);
   /*
   for like only
@@ -36,7 +38,10 @@ function addComment(e){
 
 async function getComments(){
   const comment= await props.getComments(props.id);
-  setCom(comment);
+  setCom((prev)=>({
+    ...prev,
+    comment
+  }));
 }
 
 function incLen(){
@@ -65,39 +70,45 @@ function increaselike(){
       <p>{props.content}</p>
       {props.image!="" && <img src={props.postImage} />}
       <hr/>
-      <div>
+      {/* <div>
         <p>{props.likes}-likes</p>
-      </div>
-      <div className="noteFooter">
-          <button onClick={increaselike}>Like</button>
-          <button>comment</button>
-      </div>
-      {
-        <>
-        <form onSubmit={(e)=> addComment(e)}>
-          <FloatingLabel
-            controlId="floatingTextarea"
-            label="Comments"
-            className="mb-3"
+      </div> */}
+      <div className="noteFooter" style={{ display: "flex", alignItems:"center"}}>
+        <div>
+          <button
+            style={{ color: isLiked ? 'red' : 'black', border: '1px solid black' }}
+            onClick={increaselike}
           >
-            <Form.Control as="textarea" placeholder="Leave a comment here" onClick={listenClick}/>
-          </FloatingLabel>
-          <button type="submit">Submit</button>
-      </form>
-        <div style={{display:"flex" , flexDirection:"column"}}>
-        {com && flag? com.map((noteItem, idx) => {
-          if(idx<len){
-            return (
-              <div key={idx} style={{display:"flex"}}>
-                <Comment com={noteItem} />
-              </div>
-              )
-            }
-            return (<></>)
-        }) : <></>}
-        {flag && com.length>0?<p onClick={incLen} style={{textAlign:"center"}}>load more...</p> : <></>}
-        </div> 
-        </>}
+            <FontAwesomeIcon icon={faThumbsUp} />
+            {' '}Like
+          </button>
+        </div>
+
+        <div style={{width:"80%"}}>
+          <form onSubmit={(e) => addComment(e)} style={{ display: "flex" }}>
+            <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-2" style={{ width: "80%", marginRight: "10px" }}>
+              <Form.Control as="textarea" placeholder="Leave a comment here" onClick={listenClick} />
+            </FloatingLabel>
+            <div>
+              <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8'>Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div style={{display:"flex" , flexDirection:"column"}}>
+      {com.length>0 && flag? com.map((noteItem, idx) => {
+        if(idx<len){
+          return (
+            <div key={idx} style={{display:"flex"}}>
+              <Comment com={noteItem} />
+            </div>
+            )
+          }
+          return (<></>)
+      }) : <></>}
+      {flag && com.length>0?<p onClick={incLen} style={{textAlign:"center"}}>load more...</p> : <></>}
+      </div> 
     </div>
   );
 }

@@ -5,6 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import avatar from '../user.png';
 import { useState, useEffect } from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
 
 /**/
 function OffcanvasExample(props) {
@@ -29,7 +31,7 @@ function OffcanvasExample(props) {
 
   async function sendSms(){
     console.log("sms");
-    const response= await fetch(`https://490bj8xz-8080.inc1.devtunnels.ms/sms?lat=${loc.lat}&lng=${loc.lng}`,{
+    const response= await fetch(`https://citypulse.onrender.com/sms?lat=${loc.lat}&lng=${loc.lng}`,{
       method: "GET" ,
      })
      const result= await response.json();
@@ -51,12 +53,14 @@ function OffcanvasExample(props) {
             </NavDropdown>
           </Nav>
           <>
-            <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>Alert</Button>  
+            <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>
+            <FontAwesomeIcon icon={faBell} />
+            </Button>  
             <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>
-            <Button
-                href="/profile"
-              >
-                Profile
+            <Button style={{maxHeight:"50px" , marginRight:"10px"}}
+              href="/profile"
+            >
+              <FontAwesomeIcon icon={faUser} />
             </Button>
           </>
         </Navbar.Collapse>
