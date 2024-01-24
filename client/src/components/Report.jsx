@@ -151,6 +151,9 @@ export default function App() {
 
   return (
     <Container style={{height:"100vh"}}>
+      <div id='reportForm'>
+        <FormView />
+      </div>
       <div className='mb-5' id='map'>
           <MapContainer
           center={[28.7041, 77.1025]}
@@ -166,9 +169,6 @@ export default function App() {
           </MapContainer>
       </div>
 
-      <div id='reportForm'>
-        <FormView />
-      </div>
     </Container>
   );
 }
