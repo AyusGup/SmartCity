@@ -30,7 +30,7 @@ function ChatBot(){
                       return(
                           <div key={idx} style={{textAlign:"left",marginBottom:"10px"}}>
                               <br />
-                              <div style={{float:flt ,backgroundColor:"#90EE90",borderRadius:"10px 10px 10px 0px",padding:"7px",margin:"5px"}}>{e.answer}</div>
+                              <div style={{float:flt ,backgroundColor:"#90EE90",borderRadius:"10px 10px 10px 0px",padding:"7px",margin:"5px",backgroundColor:"rgb(183 187 183)"}}>{e.answer}</div>
                           </div>
                       )
                   })

@@ -55,22 +55,22 @@ function increaselike(){
 }
 
   return (
-    <div className="note">
+    <div className="note" id="grad">
       <div id="noteheader">
         <img src={props.userImage === ""?avatar : props.userImage} style={{float:"left",width:"30px",height:"30px",borderRadius:"50%",margin:"5px"}}/>
-        <p style={{float:"left",margin:"10px",fontWeight:"bold", fontSize:"15px"}}>{props.username}</p>
+        <p style={{float:"left",margin:"10px",fontWeight:"bolder", fontSize:"25px", color:"white"}}>{props.username}</p>
       </div>
       <hr />
-      <h1>{props.title}</h1>
+      <h1 style={{color:"white"}}>{props.title}</h1>
       <p>{props.content}</p>
       {props.image!="" && <img src={props.postImage} />}
       <hr/>
       <div>
-        <p>{props.likes}-likes</p>
+        <p style={{color:"white"}}>{props.likes}-likes</p>
       </div>
       <div className="noteFooter">
           <button onClick={increaselike}>Like</button>
-          <button>comment</button>
+          <button>Comment</button>
       </div>
       {
         <>
@@ -82,7 +82,7 @@ function increaselike(){
           >
             <Form.Control as="textarea" placeholder="Leave a comment here" onClick={listenClick}/>
           </FloatingLabel>
-          <button type="submit">Submit</button>
+          <button id='note-submit' type="submit">Submit</button>
       </form>
         <div style={{display:"flex" , flexDirection:"column"}}>
         {com && flag? com.map((noteItem, idx) => {

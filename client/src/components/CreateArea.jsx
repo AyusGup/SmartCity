@@ -42,7 +42,7 @@ function CreateArea(props) {
     <div className="createpost">
       
       <form id="addPostForm" onSubmit={submitNote}>
-      <button className="crossbutton" onClick={props.closeModal}>cancel</button>
+      <button className="crossbutton" onClick={props.closeModal}>CANCEL</button>
         <input
           name="title"
           onChange={handleChange}
@@ -66,7 +66,7 @@ function CreateArea(props) {
           onChange={(e) => handleFileUpload(e)}
         />
         <hr />
-        <button id="b" >Post</button>
+        <button id="b" >POST</button>
       </form>
     </div>
     </div>

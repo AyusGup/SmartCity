@@ -66,7 +66,7 @@ function deletePost(ele) {
     getMyPosts();
 }
    return(
-    <div style={{display:"flex" , flexFlow:"wrap" , flexDirection:"column" , alignItems:"center"}}>
+    <div style={{display:"flex" , flexFlow:"wrap" , flexDirection:"column" , alignItems:"center",minWidth:"40%"}}>
       <Header logout={props.logout} />
       <div  id="message" className="alert" style={{top:"10%" ,right:"2%"}}></div>
       <div className='prompt' style={{display:"flex" ,flexDirection:"column" ,minWidth:"50%" }}>
