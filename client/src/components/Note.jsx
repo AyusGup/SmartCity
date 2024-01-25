@@ -90,7 +90,7 @@ function increaselike(){
           </form>
           </div> 
         </div>
-      <div className='flex flex-col items-start w-[100%]'>
+      <div className='flex flex-col items-start w-[100%] mt-2'>
           {com.length && flag? com.map((noteItem, idx) => {
             if(idx<len){
               return (
