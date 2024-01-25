@@ -67,31 +67,29 @@ function increaselike(){
       <p>{props.content}</p>
       {props.image!="" && <img src={props.postImage} />}
       <hr/>
-      {/* <div>
-        <p>{props.likes}-likes</p>
-      </div> */}
+
       <div className="noteFooter" style={{ display: "flex", alignItems:"center"}}>
         <div>
           <button
-            style={{ color: isLiked ? 'red' : 'black', border: '1px solid black' }}
+            style={{ color: isLiked ? 'red' : 'black'}}
             onClick={increaselike}
           >
-            <FontAwesomeIcon icon={faThumbsUp} />
-            {' '}Like
+            <FontAwesomeIcon icon={faThumbsUp} className='text-[1.8rem] pr-2'/>
+            {0}
           </button>
         </div>
 
-        <div style={{width:"80%"}}>
-          <form onSubmit={(e) => addComment(e)} style={{ display: "flex" }}>
+        <div className='w-[81%]'>
+          <form onSubmit={(e) => addComment(e)} className='flex ml-[-10px]'>
             <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-2" style={{ width: "80%", marginRight: "10px" }}>
               <Form.Control as="textarea" placeholder="Leave a comment here" onClick={listenClick} />
             </FloatingLabel>
             <div>
-              <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8'>Submit</button>
+              <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8 bg-blue-500'>Submit</button>
             </div>
           </form>
           </div> 
-      </div>
+        </div>
       <div className='flex flex-col items-start w-[100%]'>
           {com.length && flag? com.map((noteItem, idx) => {
             if(idx<len){
