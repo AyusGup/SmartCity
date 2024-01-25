@@ -98,7 +98,7 @@ function Secret(props){
               <div style={{height:"60px",width:"100%",backgroundColor:"#0D6EFD",borderRadius:'10px 10px 0px 0px',display:'flex',alignItems:'center'}}>
                 <img src={bot} style={{float:"left",marginLeft:"5px"}}/>
                 <h3 style={{marginLeft:'5px',color:"#fff"}}>Saheli</h3>
-                <button onClick={()=>setShowChatModal(false)} style={{position:"absolute",right:"10px"}}>
+                <button onClick={()=>setShowChatModal(false)} className="absolute right-2 p-2 text-xs rounded-full">
                 <FontAwesomeIcon icon={faTimes} size="2x" />
                 </button>
               </div>

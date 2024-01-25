@@ -26,7 +26,6 @@ function ChatBot(){
               {
                  data.map((e,idx)=>{
                       var flt= idx%2?"right":"left";
-                      console.log(flt)
                       return(
                           <div key={idx} style={{textAlign:"left",marginBottom:"10px"}}>
                               <br />
@@ -45,7 +44,7 @@ function ChatBot(){
                       value={query}
                   />
                   {/* style={{borderRadius:"10px",float:"right"}} */}
-                  <button id="send_chat_button" onClick={(e)=>{
+                  <button id="send_chat_button" style={{backgroundColor:"#2166e0"}} onClick={(e)=>{
                       if(query === "") return
                       setData((prev)=>[...prev,{answer:query}])
                       fetchData()

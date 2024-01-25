@@ -294,12 +294,12 @@ footer p {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  bottom: 8%;
+  bottom: 1.5%;
   right: 1%;
   background-color: #D3D3D3;
   top: 20%;
-  left:10%;
   border-radius: 7px;
+  width: 400px;
 }
 @media (max-width: 1149px){
   #mainprofile{
