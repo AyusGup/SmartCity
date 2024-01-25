@@ -6,7 +6,7 @@ import avatar from '../user.png';
 import { useState, useEffect } from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationTriangle, faUser } from '@fortawesome/free-solid-svg-icons';
 
 /**/
 function OffcanvasExample(props) {
@@ -54,7 +54,7 @@ function OffcanvasExample(props) {
           </Nav>
           <>
             <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>
-            <FontAwesomeIcon icon={faBell} />
+            <FontAwesomeIcon icon={faExclamationTriangle} />
             </Button>  
             <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>
             <Button style={{maxHeight:"50px" , marginRight:"10px"}}

@@ -38,15 +38,12 @@ function addComment(e){
 
 async function getComments(){
   const comment= await props.getComments(props.id);
-  setCom((prev)=>({
-    ...prev,
-    comment
-  }));
+  console.log(comment);
+  setCom(comment);
 }
 
 function incLen(){
   setLen(len+10<com.length?len+10:com.length)
-  console.log(len);
 }
 
 function listenClick(){
@@ -93,22 +90,21 @@ function increaselike(){
               <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8'>Submit</button>
             </div>
           </form>
-        </div>
+          </div> 
       </div>
-
-      <div style={{display:"flex" , flexDirection:"column"}}>
-      {com.length>0 && flag? com.map((noteItem, idx) => {
-        if(idx<len){
-          return (
-            <div key={idx} style={{display:"flex"}}>
-              <Comment com={noteItem} />
-            </div>
-            )
-          }
-          return (<></>)
-      }) : <></>}
-      {flag && com.length>0?<p onClick={incLen} style={{textAlign:"center"}}>load more...</p> : <></>}
-      </div> 
+      <div className='flex flex-col items-start w-[100%]'>
+          {com.length && flag? com.map((noteItem, idx) => {
+            if(idx<len){
+              return (
+                <div key={idx} style={{display:"flex"}}>
+                  <Comment com={noteItem} />
+                </div>
+                )
+            }
+            return (<></>)
+          }) : <></>}
+          {flag && com.length>0?<p onClick={incLen} className='w-100 text-center'>load more...</p> : <></>}
+      </div>
     </div>
   );
 }
