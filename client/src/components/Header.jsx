@@ -11,7 +11,7 @@ import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
 /**/
 function OffcanvasExample(props) {
   const [loc, setLoc] = useState({});
-
+  
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -48,8 +48,8 @@ function OffcanvasExample(props) {
             <Nav.Link href="/secret">Blogs</Nav.Link>
             <Nav.Link href="/report">Report</Nav.Link>
             <NavDropdown title="Map" id="basic-nav-dropdown">
-              <NavDropdown.Item href='http://127.0.0.1:5500/Mapping2/day.html' target='_blank'>Day time</NavDropdown.Item>
-              <NavDropdown.Item href='http://127.0.0.1:5500/Mapping2/night.html' target='_blank'>Night time</NavDropdown.Item>
+              <NavDropdown.Item href='http://127.0.0.1:5500/mapping/day.html' target='_blank'>Day time</NavDropdown.Item>
+              <NavDropdown.Item href='http://127.0.0.1:5500/mapping/night.html' target='_blank'>Night time</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <>

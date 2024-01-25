@@ -23,7 +23,17 @@ const UserSchema = new mongoose.Schema({
     },
     userImage:{
         type:String,
+    },
+    start:{
+        type:String,
+    },
+    destination:{
+        type:String,
+    },
+    startTime:{
+        type:String,
     }
+
 })
 
 UserSchema.pre("save",function(next){
