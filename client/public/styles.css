@@ -149,6 +149,7 @@ footer p {
   background-color: white;
   border-radius: 7px;
   display: flex;
+  padding: 5px;
   margin-top: 16px;
   margin-bottom: 16px;
 }
