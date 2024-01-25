@@ -2,7 +2,7 @@ import { useState,useRef } from "react";
 
 function Signup(props){
 	const clearIntervalRef = useRef();
-	const [timer,setTimer] = useState(60);
+	const [timer,setTimer] = useState(120);
 	const [isVerified,setVerified] = useState(false);
 	const [inputOtp,setInput] = useState(0);
 	const [otp,setOtp] = useState(0);
@@ -51,31 +51,22 @@ function Signup(props){
     
 	function setTime(){
 		setOtp(0);
-		setTimer(60);
+		setTimer(120);
 		clearInterval(clearIntervalRef.current);
 		return;
 	}
 	async function sendOtp(){
-		var mailformat = /^[a-zA-Z0-9._%+-]+@dtu\.ac\.in$/;
-		if(formD.email.match(mailformat)) {
-			document.getElementById("useremail").focus();
-			const res= await props.otp(formD.email);
-			setOtp(res);
-			clearIntervalRef.current = setInterval(()=>{
-				setTimer(prevTimer=> prevTimer-1);
-			}, 1000);
-			document.getElementById("alert").innerHTML="";
-		}
-		else {
-			document.getElementById("alert").innerHTML="*Invalid email address";
-		}
+		document.getElementById("useremail").focus();
+		const res= await props.otp(formD.email);
+		setOtp(res);
+		clearIntervalRef.current = setInterval(()=>{
+			setTimer(prevTimer=> prevTimer-1);
+		}, 1000);
+		document.getElementById("alert").innerHTML="";
 	}
 
 	function verify(){
-		console.log(inputOtp)
-		console.log(otp)
        if(inputOtp === otp){
-		console.log(otp);
 		setVerified(true);
 		clearInterval(clearIntervalRef.current)
 	   }

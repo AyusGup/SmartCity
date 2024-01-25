@@ -12,9 +12,12 @@ function setUser(user){
 function getUser(token){
     if(!token) return null;
     let res;
+    
     try{
        res= jwt.verify(token,secret);
+      
     } catch(err){
+        console.log("error in getUser" , err);
         res=null;
     }
     return res;

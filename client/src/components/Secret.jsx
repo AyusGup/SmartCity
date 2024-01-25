@@ -9,7 +9,7 @@ import PostHeader from "./PostHeader";
 import avatar from '../user.png';
 import ChatBot from "./ChatBot";
 import bot from "../bot.png"
-
+import RideForm from "./RideForm";
 const socket= io.connect("https://citypulse.onrender.com")
 
 function Secret(props){
@@ -81,11 +81,11 @@ function Secret(props){
           })}
         </div>
         <div id="chat">
-          <div style={{height:"60px",width:"100%",backgroundColor:"#0D6EFD",borderRadius:'10px 10px 0px 0px',display:'flex',alignItems:'center'}}>
+          {/* <div style={{height:"60px",width:"100%",backgroundColor:"#0D6EFD",borderRadius:'10px 10px 0px 0px',display:'flex',alignItems:'center'}}>
             <img src={bot} style={{float:"left",marginLeft:"5px"}}/>
             <h3 style={{marginLeft:'5px',color:"#fff"}}>Saheli</h3>
-          </div>
-          <ChatBot />
+          </div> */}
+          <RideForm/>
         </div>
         <div className="smallChat">
             {!showChatModal && <button  onClick={()=>setShowChatModal(true)} id="chatbotbutton">chat</button>}
@@ -97,7 +97,9 @@ function Secret(props){
                   cancel
                 </button>
               </div>
-              <ChatBot />
+              
+                <ChatBot />
+          
             </div>}
         </div>
       </div>

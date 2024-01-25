@@ -5,7 +5,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import avatar from '../user.png';
 import { useState, useEffect } from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-// import map from "../../../mapping/night.html"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+
 /**/
 function OffcanvasExample(props) {
   const [loc, setLoc] = useState({});
@@ -39,7 +41,7 @@ function OffcanvasExample(props) {
   return (
     <Navbar expand="lg" id="top" className="bg-body-tertiary" sticky="top" style={{width:"100%"}}>
       <Container>
-        <Navbar.Brand>CityPulse</Navbar.Brand>
+        <Navbar.Brand>Virangna</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="me-auto">
@@ -51,12 +53,14 @@ function OffcanvasExample(props) {
             </NavDropdown>
           </Nav>
           <>
-            <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>Alert</Button>  
+            <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>
+            <FontAwesomeIcon icon={faBell} />
+            </Button>  
             <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>
-            <Button
-                href="/profile"
-              >
-                Profile
+            <Button style={{maxHeight:"50px" , marginRight:"10px"}}
+              href="/profile"
+            >
+              <FontAwesomeIcon icon={faUser} />
             </Button>
           </>
         </Navbar.Collapse>

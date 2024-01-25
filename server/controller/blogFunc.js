@@ -42,6 +42,63 @@ async function handleUpdate(req,res){
     res.json(id);
 }
 
+async function handleRide(req, res) {
+    try {
+        const { userToken, start, destination, startTime } = req.body;
+        if (!userToken || !start || !destination || !startTime) {
+            return res.status(400).json({ error: 'Missing required fields in the request body.' });
+        }
+        console.log(getUser(userToken));
+        const id = getUser(userToken)._id;
+
+        const user = await User.findOne({ _id: id });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found.' });
+        }
+
+        const updatedUser = await User.findOneAndUpdate({ _id: id }, { start, destination, startTime }, { new: true });
+
+        console.log(`User with ID ${id} updated ride information.`);
+
+        res.status(200).json({ message: 'Ride information updated successfully.', user: updatedUser });
+    } catch (err) {
+        
+        console.error('Error in handleRide:', err);
+
+        res.status(500).json({ error: 'Internal server error.' });
+    }
+}
+
+async function handleFindRide(req, res) {
+    try {
+        const { userToken } = req.body;
+        if (!userToken) {
+            return res.status(400).json({ error: 'Missing required fields in the request body.' });
+        }
+        const id = getUser(userToken)._id;
+        const user = await User.findOne({ _id: id });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found.' });
+        }
+        if (!user.start || !user.destination || !user.startTime) {
+            return res.status(400).json({ error: 'User must fill start, destination, and startTime fields first.' });
+        }
+        const matchingUsers = await User.find({
+            _id: { $ne: id },
+            start: user.start,
+            destination: user.destination,
+            startTime: user.startTime
+        });
+        console.log(`Matching users for user with ID ${id}:`, matchingUsers);
+        res.status(200).json({ message: 'Matching users found successfully.', matchingUsers });
+    } catch (err) {
+        console.error('Error in handleFindRide:', err);
+
+        res.status(500).json({ error: 'Internal server error.' });
+    }
+}
+
+
 async function handleComments(req,res){
     const comments= await comment.find({post_id: req.query.id}).populate('user_id');
     res.json(comments);
@@ -75,5 +132,6 @@ async function handleAddPost(data){
     const save= await user.save();
 }
 
-module.exports= {hanadleMyPosts , handlePosts, handleUpdate, handleComments, handleProfile, handleAddcomment, handleDeletePost, handleAddPost, handleReport};
+
+module.exports= {hanadleMyPosts , handlePosts, handleUpdate, handleComments, handleProfile, handleAddcomment, handleDeletePost, handleAddPost, handleReport, handleFindRide, handleRide};
 
