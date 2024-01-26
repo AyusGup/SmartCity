@@ -55,7 +55,6 @@ function Root() {
      const res= await response.json();
 
      if(res.valid === true){
-       console.log(res);
       window.localStorage.setItem("customToken",(res).customToken)
       setAuthorized(2);
      }
@@ -71,13 +70,11 @@ function Root() {
 
   function removeSession(){
     localStorage.removeItem("customToken")
-    console.log(localStorage.getItem("customToken"));
     setAuthorized(0);
     navigate("/")
   }
 
   async function getComments(id){
-    console.log("getComments");
     const response= await fetch("https://citypulse.onrender.com/api/comment?id="+ id,{
       method: "GET" ,
      })
@@ -106,7 +103,6 @@ function Root() {
   }
 
   async function updateProfile(update){
-    console.log(update);
     const response= await fetch("https://citypulse.onrender.com/api/update",{
       method: "POST",
       body: JSON.stringify({user:update , userToken:localStorage.getItem("customToken")}) ,
@@ -137,7 +133,6 @@ function Root() {
         "Content-Type": "application/json",
       }
      })
-     console.log(response)
 
      if(response.status === 300){
       setAuthorized(2);

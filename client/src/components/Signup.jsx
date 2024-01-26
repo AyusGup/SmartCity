@@ -15,7 +15,6 @@ function Signup(props){
 	  });
 	
 	function handleChange(event) {
-	console.log(formD);
 	const { name, value } = event.target;
 
 	setForm(prevForm => {
