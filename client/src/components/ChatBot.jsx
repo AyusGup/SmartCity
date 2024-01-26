@@ -44,12 +44,12 @@ function ChatBot(){
                       value={query}
                   />
                   {/* style={{borderRadius:"10px",float:"right"}} */}
-                  <button id="send_chat_button" style={{backgroundColor:"#2166e0"}} onClick={(e)=>{
+                  <button id="send_chat_button"  onClick={(e)=>{
                       if(query === "") return
                       setData((prev)=>[...prev,{answer:query}])
                       fetchData()
                       setQuery("")
-                  }}>submit</button>
+                  }} style={{backgroundColor:"#2166e0", color:"white"}}>submit</button>
               {/* </div> */}
             </div>
         </div>

@@ -24,13 +24,24 @@ function Signup(props){
 		};
 	});
 	}
+	const validatePhoneNumber = (phoneNumber) => {
+		// Regex pattern for 10 digits
+		const phoneRegex = /^\d{10}$/;
+		return phoneRegex.test(phoneNumber);
+	};
 
 	function submitNote(event) {
 	event.preventDefault();
+
 	if(isVerified === false){
+
 		document.getElementById("alert").innerHTML="*please verify your email";
 		return;
 	}
+	if (!validatePhoneNumber(formD.phone)) {
+		document.getElementById("alert").innerHTML="*Please enter a valid 10-digit phone numberl";
+		return;
+	  }
 	props.onAdd(formD);
 	setForm({
 		username: "",
@@ -71,12 +82,13 @@ function Signup(props){
 	   }
 	}
 
+
     return(
         <div>
         <section className="prompt">
-        <h1>Sign up</h1>
+        <h1 style={{fontWeight:"bolder",fontSize:"1.8rem"}}>Sign up</h1>
         <hr />
-		<form>
+		<form className="signupform">
 	      	<section>
 				<label htmlFor="username">Name</label>
 				<input id="username"
@@ -90,7 +102,7 @@ function Signup(props){
 				<label htmlFor="contact">Contact</label>
 				<input id="contact"
 				 name="contact"
-				 type="number"
+				 type="te]"
 				 autoComplete="contact" onChange={handleChange}
 				 value={formD.contact}
 				 required />
@@ -104,7 +116,7 @@ function Signup(props){
 				 value={formD.email}
 				 required />
 			</section>
-			{otp === 0? <button onClick={sendOtp} style={{borderRadius:"10%",padding:".5%"}} id="sendOtp">send</button> : 
+			{otp === 0? <button onClick={sendOtp} style={{borderRadius:"10%",padding:".5%"}} id="sendOtp">Send OTP</button> : 
 			isVerified === false? 
 			<>
 			  <input placeholder="enter otp" onChange={(e)=>{setInput(e.target.value)}}/>
@@ -132,10 +144,11 @@ function Signup(props){
 					onChange={(e) => handleFileUpload(e)}
 				/>
 			</section>
-			<button type="submit" className="button" onClick={submitNote}>Sign up</button>
+			<button type="submit" className="button" onClick={submitNote} style={{fontWeight:"bold",fontSize:"1.2rem" , backgroundColor: "rgb(63 105 241)",color: "white",}}>Sign up</button>
 			<p id="alert" style={{color:"red" , fontSize:"14px"}}></p>
 		</form>
 			<p className="help">Already have an account? <a href="/">Sign in</a></p>
+
 		</section>
         </div>
     );
