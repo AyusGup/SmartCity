@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import {BrowserRouter ,Routes , Route, useNavigate} from "react-router-dom";
+import {BrowserRouter ,Routes , Route, Navigate, useNavigate} from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 import Secret from "./Secret";
@@ -10,6 +10,7 @@ import Report from "./Report"
 import Chart from "../Chart/App";
 import ReportList from "../Chart/ReportList";
 import MapPage from '../components/MapPage';
+import map from '../components/map';
 
 const socket= io.connect("https://citypulse.onrender.com")
 
@@ -129,7 +130,6 @@ function Root() {
   }
 
   async function isAuthenticated(){
-    console.log(localStorage.getItem("customToken"))
     const response= await fetch("https://citypulse.onrender.com/authenticate",{
       method: "POST" ,
       body: JSON.stringify({userToken:localStorage.getItem("customToken")}) ,
@@ -137,6 +137,7 @@ function Root() {
         "Content-Type": "application/json",
       }
      })
+     console.log(response)
 
      if(response.status === 300){
       setAuthorized(2);
@@ -163,12 +164,15 @@ function Root() {
         <img src={Gif} id="loading-image"/>
       </div>
       :
-
       isAuthorized === 2?
       <Routes>
         <Route path="/" element={<Chart logout={removeSession} />}/>
         <Route path="/chart" element={<Chart logout={removeSession} />} />
         <Route path="/repo" element={<ReportList />} />
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />} // 'replace' replaces the current entry in the navigation history
+        />
       </Routes>
       :
       <Routes>
@@ -177,8 +181,10 @@ function Root() {
         <Route path='/secret' element={isAuthorized === 1?<Secret logout={removeSession} like={updatePost} addComment={addComment} getComments={getComments} getProfile={getProfile} upDate={updateProfile} /> : <Login onCheck={checkUser}/>} />
         <Route path="/profile" element={<Profile getProfile={getProfile} upDate={updateProfile} logout={removeSession} like={updatePost} addComment={addComment} getComments={getComments}/>} />
         <Route path="/report" element={<Report />} />
-        <Route path="/chart" element={<Chart logout={removeSession} />} />
-        <Route path="/repo" element={<ReportList />} />
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />} // 'replace' replaces the current entry in the navigation history
+        />
       </Routes>
   );
 }

@@ -20,7 +20,7 @@ const RideForm = () => {
   const handleSubmit = async () => {
     
     try {
-      const response = await fetch('http://localhost:8000/api/ride', {
+      const response = await fetch('https://citypulse.onrender.com/api/ride', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const RideForm = () => {
   const handleFind = async () => {
     // Call your backend API to find matching users
     try {
-      const response = await fetch('http://localhost:8000/api/findRide', {
+      const response = await fetch('https://citypulse.onrender.com/api/findRide', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

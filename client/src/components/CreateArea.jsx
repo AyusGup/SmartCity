@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 function CreateArea(props) {
   const [post,setPost] = useState({
@@ -42,7 +44,9 @@ function CreateArea(props) {
     <div className="createpost">
       
       <form id="addPostForm" onSubmit={submitNote}>
-      <button className="crossbutton" onClick={props.closeModal}>cancel</button>
+      <button className="relative float-right p-2 text-xs rounded-full" onClick={props.closeModal}>
+      <FontAwesomeIcon icon={faTimes} size="2x" />
+      </button>
         <input
           name="title"
           onChange={handleChange}
@@ -66,7 +70,9 @@ function CreateArea(props) {
           onChange={(e) => handleFileUpload(e)}
         />
         <hr />
-        <button id="b" >Post</button>
+        <button id="b" className="mt-[-20px]">
+        <FontAwesomeIcon icon={faNewspaper} size="2x" />
+        </button>
       </form>
     </div>
     </div>
