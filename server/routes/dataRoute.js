@@ -13,13 +13,13 @@ const parserObj = new Parser();
 router.post("/",async (req,res)=>{
     try{
        console.log("hi ia ma called");
-        const {latitude, longitude,timeOfIncident, seriousness} = req.body.data;
+        const {latitude, longitude,timeOfIncident, problem} = req.body.data;
         const formattedTime = moment(timeOfIncident, "HH:mm").format("hh:mm:ss A");
         const data={
             latitude,
             longitude,
             formattedTime,
-            seriousness,
+            problem,
         }
         console.log(req.body);
 

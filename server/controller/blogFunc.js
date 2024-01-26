@@ -13,13 +13,13 @@ const handleReport = async (req,res)=>{
         complaint:req.body.data.desc,
         timeOfIncident:req.body.data.time,
         image:req.body.data.file,
-        seriousness:req.body.data.seriousness,
         sender: req.body.customToken? getUser(req.body.customToken)._id : ""
     });
     
     userReport.save()
         .then(async (user) => {
-            await fetch("http://localhost:8000/getData",{
+            console.log("hi blog function");
+            await fetch("https://citypulse.onrender.com/getData",{
             method: "POST",
             body: JSON.stringify({data: userReport}) ,
             headers:{

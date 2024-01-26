@@ -26,7 +26,6 @@ function ReportList(){
                     <div style={{width:"4vw"}}>Time</div>
                     <div style={{width:"5vw"}}>Problem</div>
                     <div style={{width:"18vw",height:"auto"}}>Complaint</div>
-                    <div style={{width:"2vw",marginRight:"40px"}}>Seriousness</div>
                     <div style={{width:"2vw",marginRight:"10px"}}>Image</div>
                     <div style={{width:"2vw",marginRight:"40px"}}>Location</div>
                     <div style={{width:"4vw"}}></div>
@@ -42,7 +41,6 @@ function ReportList(){
                     Time={noteItem.timeOfIncident}
                     Problem={noteItem.problem}
                     Complaint={noteItem.complaint}
-                    Seriousness={noteItem.seriousness}
                     Location={`https://www.google.com/maps?q=${noteItem.latitude},${noteItem.longitude}&z=${17}`}
                     Image={noteItem.image}
                 />
@@ -61,7 +59,6 @@ function ReportList(){
                         Time={noteItem.timeOfIncident}
                         Problem={noteItem.problem}
                         Complaint={noteItem.complaint}
-                        Seriousness={noteItem.seriousness}
                         Location={`https://www.google.com/maps?q=${noteItem.latitude},${noteItem.longitude}&z=${17}`}
                         Image={noteItem.image}
                     />

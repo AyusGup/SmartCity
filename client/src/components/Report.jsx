@@ -16,8 +16,7 @@ export default function App() {
   const formD = useRef({
     time:"",
     desc:"",
-    problem:"",
-    seriousness:"",
+    problem:0,
     latitude:null,
     longitude:null,
     file:"",
@@ -32,15 +31,13 @@ export default function App() {
     const base64= await convertToBase64(file);
     formD.current.file = base64;
   }
-
   async function submitReport(e) {
+    try{
     e.preventDefault();
     formD.current.time = e.target[0].value;
     formD.current.desc = e.target[1].value;
     formD.current.problem = e.target[2].value;
-    formD.current.seriousness = e.target[3].value;
-    // https://citypulse.onrender.com/api/report
-    const response= await fetch("http://localhost:8000/api/report",{
+    const response= await fetch("https://citypulse.onrender.com/api/report",{
       method: "POST",
       body: JSON.stringify({data:formD.current, customToken:localStorage.getItem("customToken")}) ,
       headers:{
@@ -50,10 +47,13 @@ export default function App() {
     const res= await response.json();
     if(res.message === "success"){
       console.log(res);
-      
-      // await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
+      await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
     }
-    e.target.reset();
+    navigate(res.url);
+  }
+  catch(err){
+    console.log("error in report area ",err);
+  }
   }
 
   function FormView(){
@@ -75,26 +75,26 @@ export default function App() {
                 <Col sm={7} className="mb-4 element">
                     <Form.Select aria-label="Default select example" name="problem" >
                         <option>select your complaint</option>
-                        <option value="Safety Concerns">Riot</option>
-                        <option value="Safety Concerns">Murder</option>
-                        <option value="Violence Report">Rape</option>
-                        <option value="Violence Report">Molestation</option>
-                        <option value="Molestation Cases">Kidnapping</option>
-                        <option value="Miscellaneous">Violence</option>
-                        <option value="Miscellaneous">Robbery</option>
-                        <option value="Miscellaneous">Theft</option>
-                        <option value="Miscellaneous">Accident</option>
-                        <option value="Miscellaneous">Miscellaneous</option>
+                        <option value={10}>Riot</option>
+                        <option value={9}>Murder</option>
+                        <option value={8}>Rape</option>
+                        <option value={7}>Molestation</option>
+                        <option value={6}>Kidnapping</option>
+                        <option value={5}>Violence</option>
+                        <option value={4}>Robbery</option>
+                        <option value={3}>Theft</option>
+                        <option value={2}>Accident</option>
+                        <option value={1}>Miscellaneous</option>
                     </Form.Select>
                 </Col>
-                <Col sm={7} className="mb-4 element">
+                {/* <Col sm={7} className="mb-4 element">
                     <Form.Select aria-label="Default select example" name="seriousness">
                         <option>select your complaint seriousness</option>
                         <option value="1">High</option>
                         <option value="2">Medium</option>
                         <option value="3">Low</option>
                     </Form.Select>
-                </Col>
+                </Col> */}
                 <Col sm={7} className='element'>
                     <InputGroup className="mb-4">
                         <Form.Control

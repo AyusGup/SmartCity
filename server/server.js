@@ -55,5 +55,5 @@ app.use("/get",adminRoute);
 app.use("/getData",dataRoute);
 
 server.listen(8000, () => {
-    console.log("server listening on port: 8080");
+    console.log("server listening on port: 8000");
 })

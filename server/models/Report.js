@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const reportModel = new mongoose.Schema({
     sender:{type: mongoose.Schema.Types.ObjectId , ref:"user"},
     problem:{type:String},
-    seriousness:{type:String},
     latitude:{type:String},
     longitude:{type:String},
     complaint:{type:String},
