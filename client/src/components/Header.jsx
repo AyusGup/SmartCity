@@ -31,7 +31,6 @@ function OffcanvasExample(props) {
     }, []);
 
   async function sendSms(){
-    console.log("sms");
     const response= await fetch(`https://citypulse.onrender.com/sms?lat=${loc.lat}&lng=${loc.lng}`,{
       method: "GET" ,
      })
@@ -49,8 +48,8 @@ function OffcanvasExample(props) {
             <Nav.Link href="/secret">Blogs</Nav.Link>
             <Nav.Link href="/report">Report</Nav.Link>
             <NavDropdown title="Map" id="basic-nav-dropdown">
-              <NavDropdown.Item href='http://127.0.0.1:5500/mapping/day.html' target='_blank'>Day time</NavDropdown.Item>
-              <NavDropdown.Item href='http://127.0.0.1:5500/mapping/night.html' target='_blank'>Night time</NavDropdown.Item>
+              <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/day.html' target='_blank'>Day time</NavDropdown.Item>
+              <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html' target='_blank'>Night time</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <>

@@ -25,8 +25,7 @@ function Item(props){
                     <div><button className="button" onClick={()=>{
                     window.open(props.Location, '_blank')
                     }}>view location</button></div>
-
-                    <div><button className="button" style={{backgroundColor:"red"}}>close</button></div>
+                    {/* <div><button className="button" style={{backgroundColor:"red"}}>close</button></div> */}
             </div>
          </div>
       </>

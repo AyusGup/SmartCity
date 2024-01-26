@@ -55,7 +55,7 @@ function Item(props){
             <div style={{width:"2vw",color:"white"}}><button className="button" onClick={()=>{
                window.open(props.Location, '_blank')
             }}>see</button></div>
-            <div style={{width:"2vw"}}><button className="button" style={{backgroundColor:"red", color:"white"}} onClick={update}>Approved</button></div>
+            {/* <div style={{width:"2vw"}}><button className="button" style={{backgroundColor:"red", color:"white"}} onClick={update}>Approved</button></div> */}
             {/* <div style={{width:"2vw"}}><button className="button" style={{backgroundColor:"red"}} onClick={update(false)}>Close</button></div> */}
          </div>
       </>

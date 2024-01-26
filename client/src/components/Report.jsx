@@ -10,6 +10,22 @@ import L from 'leaflet';
 import icon from "./Map/constants";
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from "react-hot-toast";
+import { RingLoader } from "react-spinners";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+// import { useHistory } from 'react-router-dom';
+
+// const RedirectAndReload = () => {
+//   const history = useHistory();
+
+//   const redirectToPage = () => {
+//     // Redirect to the desired page
+//     history.push('/new-page');
+
+//     // Reload the page
+//     window.location.reload(true); // Pass true to force a full page reload
+//   };
 
 
 export default function App() {
@@ -22,7 +38,7 @@ export default function App() {
     file:"",
     fileName:null
   })
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   
   async function handleFileUpload(e){
@@ -34,6 +50,7 @@ export default function App() {
   async function submitReport(e) {
     try{
     e.preventDefault();
+    setLoading(true);
     formD.current.time = e.target[0].value;
     formD.current.desc = e.target[1].value;
     formD.current.problem = e.target[2].value;
@@ -46,19 +63,28 @@ export default function App() {
      })
     const res= await response.json();
     if(res.message === "success"){
-      console.log(res);
       await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
+      toast.success("report submitted successfully!");
     }
-    navigate(res.url);
+    setLoading(false);
+    formD.current={
+      time:"",
+      desc:"",
+      problem:0,
+      latitude:null,
+      longitude:null,
+      file:"",
+      fileName:null
+    }
   }
   catch(err){
+    toast.error("error in submitting report");
     console.log("error in report area ",err);
   }
   }
 
   function FormView(){
     return(
-      <>
         <Container id="rf" >
           <Form onSubmit={submitReport} id="f">
                 <label htmlFor="formHorizontalEmail" className='element'>Select time of incident:</label>
@@ -106,12 +132,11 @@ export default function App() {
                         />
                     </InputGroup>
                 </Col>
-                <Button variant="primary" type="submit" className="mb-4 element" >
+                <Button type="submit" className="mb-4 element bg-blue-500" >
                     Submit
                 </Button>
             </Form>
         </Container>
-      </>
     );
   }
   
@@ -156,7 +181,26 @@ export default function App() {
   }
 
   return (
+    <>
+      <Toaster position="top-center" reverseOrder={false} />
+      {loading? (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-opacity-20 z-500">
+            <RingLoader
+              color={"#FFFFFF"}
+              size={150}
+              loading={loading}
+            />
+          </div>
+        
+      ) : (
     <Container style={{height:"100vh"}}>
+      <div className='fixed top-2 left-5 w-[100%] mb-5'>
+      <FontAwesomeIcon icon={faHome} className='text-[30px]' onClick={()=>{
+        navigate('/secret');
+        window.location.reload(true);
+      }} />
+      </div>
+      
       <div id='reportForm'>
         <FormView />
       </div>
@@ -175,7 +219,8 @@ export default function App() {
           </MapContainer>
       </div>
 
-    </Container>
+    </Container>)}
+  </>
   );
 }
 
