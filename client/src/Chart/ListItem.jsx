@@ -23,7 +23,7 @@ function Item(props){
             <div style={{width:"5vw"}}>{props.Problem}</div>
             <div style={{width:"18vw"}}>
                <p className="long-text">{props.Complaint}</p>
-               <button id="show-more" onClick={(e)=>{
+               <button id="show-more" style={{backgroundColor:"blue",color:"white"}} onClick={(e)=>{
                  let text = document.getElementsByClassName("long-text");
                  if(text[props.index].style.overflow === ""){
                      text[props.index].style.maxHeight = "95px";
@@ -44,7 +44,7 @@ function Item(props){
             </div>
 
             <div style={{width:"2vw"}}>{props.Seriousness}</div>
-            <div style={{width:"2vw"}}><button className="button" onClick={()=>{
+            <div style={{width:"2vw",color:"white"}}><button className="button" onClick={()=>{
 
                const imageWindow = window.open('', 'ImageWindow');
                imageWindow.document.write('<html><head><title>Image</title></head><body>');
@@ -52,10 +52,10 @@ function Item(props){
                imageWindow.document.write('</body></html>');
 
             }}>view</button></div>
-            <div style={{width:"2vw"}}><button className="button" onClick={()=>{
+            <div style={{width:"2vw",color:"white"}}><button className="button" onClick={()=>{
                window.open(props.Location, '_blank')
             }}>see</button></div>
-            <div style={{width:"2vw"}}><button className="button" style={{backgroundColor:"red"}} onClick={update}>Approved</button></div>
+            <div style={{width:"2vw"}}><button className="button" style={{backgroundColor:"red", color:"white"}} onClick={update}>Approved</button></div>
             {/* <div style={{width:"2vw"}}><button className="button" style={{backgroundColor:"red"}} onClick={update(false)}>Close</button></div> */}
          </div>
       </>
