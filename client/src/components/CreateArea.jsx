@@ -70,8 +70,8 @@ function CreateArea(props) {
           onChange={(e) => handleFileUpload(e)}
         />
         <hr />
-        <button id="b" className="mt-[-20px]">
-        <FontAwesomeIcon icon={faNewspaper} size="2x" />
+        <button id='b' >
+        <FontAwesomeIcon icon={faNewspaper} size="2x"  />
         </button>
       </form>
     </div>
