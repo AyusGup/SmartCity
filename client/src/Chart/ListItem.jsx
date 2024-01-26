@@ -22,7 +22,7 @@ function Item(props){
             <div style={{width:"5vw"}}>{props.Problem}</div>
             <div style={{width:"18vw"}}>
                <p className="long-text">{props.Complaint}</p>
-               <button id="show-more" style={{backgroundColor:"blue",color:"white"}} onClick={(e)=>{
+               <button id="show-more" onClick={(e)=>{
                  let text = document.getElementsByClassName("long-text");
                  if(text[props.index].style.overflow === ""){
                      text[props.index].style.maxHeight = "95px";
@@ -39,7 +39,7 @@ function Item(props){
                      text[props.index].style.overflow = "hidden";
                      e.target.innerHTML = "Show More";
                  }
-               }}>Show More</button>
+               }}>Read More...</button>
             </div>
 
             <div style={{width:"2vw"}}>{props.Seriousness}</div>
