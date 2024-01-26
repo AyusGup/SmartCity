@@ -50,7 +50,7 @@ function ChatBot(){
                       setData((prev)=>[...prev,{answer:query}])
                       fetchData()
                       setQuery("")
-                  }}>submit</button>
+                  }} style={{backgroundColor:"#2166e0", color:"white"}}>submit</button>
               {/* </div> */}
             </div>
         </div>

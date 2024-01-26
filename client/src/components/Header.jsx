@@ -54,10 +54,10 @@ function OffcanvasExample(props) {
             </NavDropdown>
           </Nav>
           <>
-            <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>
+            <Button onClick={sendSms} className='max-h-50 bg-blue-500 mr-3'>
             <FontAwesomeIcon icon={faExclamationTriangle} />
             </Button>  
-            <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>
+            <Button onClick={props.logout} className='max-h-50 bg-blue-500 mr-3 font-bold'>Log Out</Button>
             <Button style={{maxHeight:"50px" , marginRight:"10px"}}
               href="/profile"
             >
