@@ -13,22 +13,32 @@ function Note(props) {
   const [com,setCom] = useState([]);
   const [len,setLen] = useState(2);
   const [flag,setFlag] = useState(false);
-  const [isLiked,setLike] = useState(false);
-  const [like,setlike] = useState(false);
-  /*
-  for like only
-  function handleClick() {
-    const val= check?-1:1;
-    props.like(props.val);
-    setCheck(1);
-  }
- */
+  const [numberLike,setNumberLike] = useState(props.likes);
+  const [currentLike,setCurrentLike] = useState(false);
+ console.log(props);
+  
 useEffect(() => {
   socket.on("recieve-comments", (data) => {
     getComments();
   })
 },[socket]);
 
+useEffect(() => {
+  const handleUnload = async () => {
+    const response = await fetch('https://citypulse.onrender.com/api/updateLike', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ _id: props.id, likes: numberLike }),
+    });
+  };
+
+  window.addEventListener('beforeunload', handleUnload);
+  return () => {
+    window.removeEventListener('beforeunload', handleUnload);
+  };
+}, [props.id, numberLike]);
 function addComment(e){
    props.addComment({comment: e.target[0].value , post_id:props.id});
    e.target[0].value="";
@@ -52,8 +62,15 @@ function listenClick(){
 }
 
 function increaselike(){
-  if(like===true) setlike(false);
-  else if(like===false) setlike(true);
+  console.log("hi i am called");
+  if(currentLike===true) {
+    setNumberLike(numberLike-1);
+    setCurrentLike(!currentLike);
+  }
+  else if(currentLike===false) {
+    setNumberLike(numberLike+1);
+    setCurrentLike(!currentLike);
+  }
 }
 
   return (
@@ -76,7 +93,7 @@ function increaselike(){
             id="thumbup"
           >
             <FontAwesomeIcon icon={faThumbsUp} className='text-[1.8rem] pr-2'/>
-            {0}
+            {numberLike}
           </button>
         </div>
 

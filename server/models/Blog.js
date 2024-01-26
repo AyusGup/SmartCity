@@ -8,7 +8,10 @@ const blogSchema = new mongoose.Schema({
     title: String,
     content: String,
     postImage: String,
-    likes: Number
+    likes: {
+        type: Number,
+        default: 0  
+      }
 });
 const blog = mongoose.model('blog', blogSchema);
 

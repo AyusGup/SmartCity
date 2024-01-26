@@ -139,6 +139,12 @@ async function handleAddPost(data){
     const save= await user.save();
 }
 
+async function handleUpdateLike(req,res){
+    const { _id , likes } = req.body;
+    console.log(likes);
+    const del= await blog.findOneAndUpdate({_id: _id},{likes: likes});
+    res.json(del);
+}
 
-module.exports= {hanadleMyPosts , handlePosts, handleUpdate, handleComments, handleProfile, handleAddcomment, handleDeletePost, handleAddPost, handleReport, handleFindRide, handleRide};
+module.exports= {hanadleMyPosts , handleUpdateLike, handlePosts, handleUpdate, handleComments, handleProfile, handleAddcomment, handleDeletePost, handleAddPost, handleReport, handleFindRide, handleRide};
 
