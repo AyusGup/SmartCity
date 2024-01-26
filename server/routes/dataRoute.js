@@ -3,30 +3,31 @@ const {Parser} = require("json2csv");
 const router= express.Router();
 const Report = require("../models/Report");
 const fs = require('fs');
-const filePath = "../../ml-model/delhi_data.csv";
-
+const path = require('path');
+const filePath = path.join(__dirname, "../../ml-model/delhi_data.csv");
+const moment = require("moment");
 
 const filter = { approved: true };
 const parserObj = new Parser();
 
 router.post("/",async (req,res)=>{
     try{
-       
-        const reports= await Report.findOneAndUpdate({_id:req.body.key},{approved:req.body.approved,flag:"false"});
-    // const reports= await Report.find(filter);
-      
-    // for(let i=0;i<reports.length;i++){
+       console.log("hi ia ma called");
+        const {latitude, longitude,timeOfIncident, problem} = req.body.data;
+        const formattedTime = moment(timeOfIncident, "HH:mm").format("hh:mm:ss A");
         const data={
-            Latitude:reports.latitude,
-            Longitude:reports.longitude,
-            Time:reports.timeOfIncident,
+            latitude,
+            longitude,
+            formattedTime,
+            problem,
         }
-    
+        console.log(req.body);
 
     // }
     if(data){
         const csv =  parserObj.parse(data);
-        fs.appendFileSync(filePath, csv);
+        fs.appendFileSync(filePath, Object.values(data).join(',') + '\n');
+        console.log("data added sucess");
     }    
     res.json(data);
 }

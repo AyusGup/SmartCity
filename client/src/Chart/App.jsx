@@ -35,7 +35,7 @@ function Chart(props) {
   },[]);
 
   async function getData(){
-    const response= await fetch("http://localhost:8000/get/count",{
+    const response= await fetch("https://citypulse.onrender.com/get/count",{
       method: "GET" ,
     })
     const result = await response.json();

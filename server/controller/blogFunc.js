@@ -17,8 +17,16 @@ const handleReport = async (req,res)=>{
     });
     
     userReport.save()
-        .then((user) => {
-         return res.status(200).json({message:"success", url:"/secret"});
+        .then(async (user) => {
+            console.log("hi blog function");
+            await fetch("https://citypulse.onrender.com/getData",{
+            method: "POST",
+            body: JSON.stringify({data: userReport}) ,
+            headers:{
+                "Content-Type": "application/json",
+            }
+            })
+            return res.status(200).json({message:"success", url:"/secret",userReport});
         })
         .catch((error) => {
         return res.status(300).json({message:"failed", url:"/report"});

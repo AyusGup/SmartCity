@@ -31,13 +31,12 @@ export default function App() {
     const base64= await convertToBase64(file);
     formD.current.file = base64;
   }
-
   async function submitReport(e) {
+    try{
     e.preventDefault();
     formD.current.time = e.target[0].value;
     formD.current.desc = e.target[1].value;
     formD.current.problem = e.target[2].value;
-
     const response= await fetch("https://citypulse.onrender.com/api/report",{
       method: "POST",
       body: JSON.stringify({data:formD.current, customToken:localStorage.getItem("customToken")}) ,
@@ -47,9 +46,14 @@ export default function App() {
      })
     const res= await response.json();
     if(res.message === "success"){
+      console.log(res);
       await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
     }
     navigate(res.url);
+  }
+  catch(err){
+    console.log("error in report area ",err);
+  }
   }
 
   function FormView(){
