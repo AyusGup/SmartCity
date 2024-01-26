@@ -13,6 +13,13 @@
 1) cd server
 2) npm install
 3) node server.js
+
+**ML Model**
+
+1) python nltk_utils.py
+2) python model.py
+3) python train.py
+4) python run.py
    
 **Solution:-**
 1) Introducing a dynamic community-centric platform, seamlessly integrating a blogging website and a ride-sharing portal. Users can share insightful blogs and initiate awareness campaigns on diverse topics, fostering a collaborative and informed community. The platform extends beyond virtual interactions by incorporating a ride-sharing feature with a focus on energy efficiency and traffic reduction. 
