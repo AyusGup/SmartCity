@@ -42,7 +42,7 @@ function ReportList(){
                     Time={noteItem.timeOfIncident}
                     Problem={noteItem.problem}
                     Complaint={noteItem.complaint}
-                    Seriousness={noteItem.seriousness}
+                    Seriousness={noteItem.problem}
                     Location={`https://www.google.com/maps?q=${noteItem.latitude},${noteItem.longitude}&z=${17}`}
                     Image={noteItem.image}
                 />
@@ -61,7 +61,7 @@ function ReportList(){
                         Time={noteItem.timeOfIncident}
                         Problem={noteItem.problem}
                         Complaint={noteItem.complaint}
-                        Seriousness={noteItem.seriousness}
+                        Seriousness={noteItem.problem}
                         Location={`https://www.google.com/maps?q=${noteItem.latitude},${noteItem.longitude}&z=${17}`}
                         Image={noteItem.image}
                     />

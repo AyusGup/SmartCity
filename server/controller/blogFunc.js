@@ -13,7 +13,6 @@ const handleReport = async (req,res)=>{
         complaint:req.body.data.desc,
         timeOfIncident:req.body.data.time,
         image:req.body.data.file,
-        seriousness:req.body.data.seriousness,
         sender: req.body.customToken? getUser(req.body.customToken)._id : ""
     });
     

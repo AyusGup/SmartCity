@@ -16,7 +16,7 @@ function Item(props){
    return(
       <>
          <hr />
-         <div style={{display:"flex",width:"100%",justifyContent:"space-around",backgroundColor:"#DCDCDC", padding:"30px", borderRadius:"10px"}}>
+         <div style={{display:"flex",width:"100%",justifyContent:"space-around",backgroundColor:"#DCDCDC", marginTop:"20px", padding:"30px", borderRadius:"10px"}}>
             <div style={{width:"8vw"}}>{props.Date}</div>
             <div style={{width:"2vw"}}>{props.Time}</div>
             <div style={{width:"5vw"}}>{props.Problem}</div>
@@ -42,7 +42,6 @@ function Item(props){
                }}>Show More</button>
             </div>
 
-            <div style={{width:"2vw"}}>{props.Seriousness}</div>
             <div style={{width:"2vw",color:"white"}}><button className="button" onClick={()=>{
 
                const imageWindow = window.open('', 'ImageWindow');
