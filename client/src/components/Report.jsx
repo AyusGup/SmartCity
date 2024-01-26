@@ -48,7 +48,6 @@ export default function App() {
       }
      })
     const res= await response.json();
-    console.log(res);
     if(res.message === "success"){
       await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
     }
@@ -74,10 +73,15 @@ export default function App() {
                 <Col sm={7} className="mb-4 element">
                     <Form.Select aria-label="Default select example" name="problem" >
                         <option>select your complaint</option>
-                        <option value="Lighting issues">Lighting issues</option>
-                        <option value="Safety Concerns">Safety Concerns</option>
-                        <option value="Violence Report">Violence Report</option>
-                        <option value="Molestation Cases">Molestation Cases</option>
+                        <option value="Safety Concerns">Riot</option>
+                        <option value="Safety Concerns">Murder</option>
+                        <option value="Violence Report">Rape</option>
+                        <option value="Violence Report">Molestation</option>
+                        <option value="Molestation Cases">Kidnapping</option>
+                        <option value="Miscellaneous">Violence</option>
+                        <option value="Miscellaneous">Robbery</option>
+                        <option value="Miscellaneous">Theft</option>
+                        <option value="Miscellaneous">Accident</option>
                         <option value="Miscellaneous">Miscellaneous</option>
                     </Form.Select>
                 </Col>
@@ -123,7 +127,6 @@ export default function App() {
         setBbox(e.bounds.toBBoxString().split(","));
         formD.current.latitude = e.latlng.lat;
         formD.current.longitude = e.latlng.lng;
-        console.log(formD.current);
       });
     }, [map]);
 

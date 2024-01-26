@@ -3,7 +3,6 @@ import useState from "react";
 
 function Item(props){
    async function update(){
-      console.log(props);
       const response= await fetch("https://citypulse.onrender.com/getData",{
         method: "POST",
         body: JSON.stringify({"approved":true,"key":props.id}) ,

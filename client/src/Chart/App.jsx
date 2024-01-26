@@ -42,7 +42,6 @@ function Chart(props) {
     setData(result.data);
   }
 
-  console.log(data);
   
   yearReportData.current = {
     labels: data.yList,
@@ -136,7 +135,7 @@ function Chart(props) {
 
   return (
     <>
-      <Header logout={props.logout} />
+      <Header logout={props.logout}/>
       <div className="App">
         <div style={{ maxWidth: 1000 , minWidth: 300 , width:"80vw"}}>
           <BarChart chartData={caseReportData.current} />

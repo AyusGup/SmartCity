@@ -69,6 +69,7 @@ function Root() {
   }
 
   function removeSession(){
+    console.log("clicked")
     localStorage.removeItem("customToken")
     setAuthorized(0);
     navigate("/")

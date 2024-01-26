@@ -3,7 +3,7 @@ const {Parser} = require("json2csv");
 const router= express.Router();
 const Report = require("../models/Report");
 const fs = require('fs');
-const filePath = "../Mapping/Data.csv";
+const filePath = "../../ml-model/delhi_data.csv";
 
 
 const filter = { approved: true };
@@ -14,8 +14,7 @@ router.post("/",async (req,res)=>{
        
         const reports= await Report.findOneAndUpdate({_id:req.body.key},{approved:req.body.approved,flag:"false"});
     // const reports= await Report.find(filter);
-      console.log(reports);
-    
+      
     // for(let i=0;i<reports.length;i++){
         const data={
             Latitude:reports.latitude,
@@ -27,7 +26,6 @@ router.post("/",async (req,res)=>{
     // }
     if(data){
         const csv =  parserObj.parse(data);
-        console.log(csv);
         fs.appendFileSync(filePath, csv);
     }    
     res.json(data);
