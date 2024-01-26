@@ -10,7 +10,6 @@ import L from 'leaflet';
 import icon from "./Map/constants";
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
-import Header from "./Header";
 
 
 export default function App() {
@@ -24,15 +23,14 @@ export default function App() {
     file:"",
     fileName:null
   })
+
   const navigate = useNavigate();
   
   async function handleFileUpload(e){
     const file= e.target.files[0];
     formD.current.fileName = e.target.files[0].name;
     const base64= await convertToBase64(file);
-    console.log("uploaded");
     formD.current.file = base64;
-    
   }
 
   async function submitReport(e) {
@@ -51,6 +49,9 @@ export default function App() {
      })
     const res= await response.json();
     console.log(res);
+    if(res.message === "success"){
+      await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
+    }
     e.target.reset();
   }
 
