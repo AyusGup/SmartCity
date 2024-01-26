@@ -38,15 +38,12 @@ function addComment(e){
 
 async function getComments(){
   const comment= await props.getComments(props.id);
-  setCom((prev)=>({
-    ...prev,
-    comment
-  }));
+  console.log(comment);
+  setCom(comment);
 }
 
 function incLen(){
   setLen(len+10<com.length?len+10:com.length)
-  console.log(len);
 }
 
 function listenClick(){
@@ -70,45 +67,43 @@ function increaselike(){
       <p>{props.content}</p>
       {props.image!="" && <img src={props.postImage} />}
       <hr/>
-      {/* <div>
-        <p>{props.likes}-likes</p>
-      </div> */}
+
       <div className="noteFooter" style={{ display: "flex", alignItems:"center"}}>
         <div>
           <button
-            style={{ color: isLiked ? 'red' : 'black', border: '1px solid black' }}
+            style={{ color:'black',height:"43px",bottom:"5px"}}
             onClick={increaselike}
+            id="thumbup"
           >
-            <FontAwesomeIcon icon={faThumbsUp} />
-            {' '}Like
+            <FontAwesomeIcon icon={faThumbsUp} className='text-[1.8rem] pr-2'/>
+            {0}
           </button>
         </div>
 
-        <div style={{width:"80%"}}>
-          <form onSubmit={(e) => addComment(e)} style={{ display: "flex" }}>
+        <div className='w-[81%]'>
+          <form onSubmit={(e) => addComment(e)} className='flex ml-[-10px]'>
             <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-2" style={{ width: "80%", marginRight: "10px" }}>
               <Form.Control as="textarea" placeholder="Leave a comment here" onClick={listenClick} />
             </FloatingLabel>
             <div>
-              <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8'>Submit</button>
+              <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8 bg-blue-500'>Submit</button>
             </div>
           </form>
+          </div> 
         </div>
+      <div className='flex flex-col items-start w-[100%] mt-2'>
+          {com.length && flag? com.map((noteItem, idx) => {
+            if(idx<len){
+              return (
+                <div key={idx} style={{display:"flex"}}>
+                  <Comment com={noteItem} />
+                </div>
+                )
+            }
+            return (<></>)
+          }) : <></>}
+          {flag && com.length>0?<p onClick={incLen} className='w-100 text-center'>load more...</p> : <></>}
       </div>
-
-      <div style={{display:"flex" , flexDirection:"column"}}>
-      {com.length>0 && flag? com.map((noteItem, idx) => {
-        if(idx<len){
-          return (
-            <div key={idx} style={{display:"flex"}}>
-              <Comment com={noteItem} />
-            </div>
-            )
-          }
-          return (<></>)
-      }) : <></>}
-      {flag && com.length>0?<p onClick={incLen} style={{textAlign:"center"}}>load more...</p> : <></>}
-      </div> 
     </div>
   );
 }

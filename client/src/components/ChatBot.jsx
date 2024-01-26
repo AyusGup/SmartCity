@@ -5,7 +5,7 @@ function ChatBot(){
     const [query,setQuery] = useState("");
 
     const fetchData = async()=>{
-       const response = await fetch("http://localhost:5000/predict",{
+       const response = await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/predict",{
          method:"POST",
          body:JSON.stringify({
             "message":query
@@ -26,7 +26,6 @@ function ChatBot(){
               {
                  data.map((e,idx)=>{
                       var flt= idx%2?"right":"left";
-                      console.log(flt)
                       return(
                           <div key={idx} style={{textAlign:"left",marginBottom:"10px"}}>
                               <br />
@@ -45,12 +44,12 @@ function ChatBot(){
                       value={query}
                   />
                   {/* style={{borderRadius:"10px",float:"right"}} */}
-                  <button id="send_chat_button" onClick={(e)=>{
+                  <button id="send_chat_button"  onClick={(e)=>{
                       if(query === "") return
                       setData((prev)=>[...prev,{answer:query}])
                       fetchData()
                       setQuery("")
-                  }}>submit</button>
+                  }} style={{backgroundColor:"#2166e0", color:"white"}}>submit</button>
               {/* </div> */}
             </div>
         </div>

@@ -3,10 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import avatar from '../user.png';
+import logo from './icons/logo.png';
 import { useState, useEffect } from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationTriangle, faUser } from '@fortawesome/free-solid-svg-icons';
 
 /**/
 function OffcanvasExample(props) {
@@ -41,7 +42,7 @@ function OffcanvasExample(props) {
   return (
     <Navbar expand="lg" id="top" className="bg-body-tertiary" sticky="top" style={{width:"100%"}}>
       <Container>
-        <Navbar.Brand>Virangna</Navbar.Brand>
+        <Navbar.Brand><img src={logo} className='rounded-full h-10' /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="me-auto">
@@ -53,10 +54,10 @@ function OffcanvasExample(props) {
             </NavDropdown>
           </Nav>
           <>
-            <Button onClick={sendSms} style={{maxHeight:"50px" , marginRight:"10px"}}>
-            <FontAwesomeIcon icon={faBell} />
+            <Button onClick={sendSms} className='max-h-50 bg-blue-500 mr-3'>
+            <FontAwesomeIcon icon={faExclamationTriangle} />
             </Button>  
-            <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>
+            <Button onClick={props.logout} className='max-h-50 bg-blue-500 mr-3 font-bold'>Log Out</Button>
             <Button style={{maxHeight:"50px" , marginRight:"10px"}}
               href="/profile"
             >

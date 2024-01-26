@@ -25,8 +25,7 @@ function Comment(props){
             style={{
               display: "flex",
               flexDirection: "column",
-              marginTop: "20px",
-              marginLeft: "20px",
+              paddingLeft: "10px",
               alignItems: "flex-start",
             }}
           >

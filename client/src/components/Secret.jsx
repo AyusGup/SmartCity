@@ -9,7 +9,10 @@ import PostHeader from "./PostHeader";
 import avatar from '../user.png';
 import ChatBot from "./ChatBot";
 import bot from "../bot.png"
+import logo1 from "./icons/logo1.png";
 import RideForm from "./RideForm";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faComment } from '@fortawesome/free-solid-svg-icons';
 const socket= io.connect("https://citypulse.onrender.com")
 
 function Secret(props){
@@ -88,18 +91,18 @@ function Secret(props){
           <RideForm/>
         </div>
         <div className="smallChat">
-            {!showChatModal && <button  onClick={()=>setShowChatModal(true)} id="chatbotbutton">chat</button>}
+            {!showChatModal && <button  onClick={()=>setShowChatModal(true)} id="chatbotbutton">
+            <img src={logo1} className="rounded-full h-16" />
+            </button>}
             {showChatModal && <div id="smallChatArea">
               <div style={{height:"60px",width:"100%",backgroundColor:"#0D6EFD",borderRadius:'10px 10px 0px 0px',display:'flex',alignItems:'center'}}>
                 <img src={bot} style={{float:"left",marginLeft:"5px"}}/>
                 <h3 style={{marginLeft:'5px',color:"#fff"}}>Saheli</h3>
-                <button onClick={()=>setShowChatModal(false)} style={{position:"absolute",right:"10px"}}>
-                  cancel
+                <button onClick={()=>setShowChatModal(false)} className="absolute right-2 p-2 text-xs rounded-full">
+                <FontAwesomeIcon icon={faTimes} size="2x" />
                 </button>
               </div>
-              
-                <ChatBot />
-          
+              <ChatBot />
             </div>}
         </div>
       </div>

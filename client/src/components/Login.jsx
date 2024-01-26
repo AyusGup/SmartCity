@@ -28,11 +28,11 @@ function Login(props) {
   return (
     <div>
     <section className="prompt">
-    <h1>Sign in</h1>
+    <h1 style={{fontSize:"1.5rem",fontWeight:"bolder"}}>Sign In</h1>
     <hr />
     <form action="/login/password" method="post">
     <section>
-				<label htmlFor="useremail">Email</label>
+				<label htmlFor="useremail" style={{fontSize:"1.3rem"}}>Email</label>
 				<input id="useremail"
 				 name="email"
 				 type="email"
@@ -41,7 +41,7 @@ function Login(props) {
 				 required />
 			</section>
 			<section>
-				<label htmlFor="new-password">Password</label>
+				<label htmlFor="new-password" style={{fontSize:"1.3rem"}}>Password</label>
 				<input id="new-password"
 				 name="password"
 				 type="password"
@@ -49,11 +49,11 @@ function Login(props) {
 				 value={formDetails.password}
 				 required />
 			</section>
-      <button type="submit" className="button" onClick={submitNote}>Sign in</button>
+      <button type="submit" className="button" onClick={submitNote} style={{backgroundColor: "rgb(63 105 241)",color: "white",fontSize:"1.2rem",fontWeight:"bolder"}}>Sign In</button>
       <p id="alert" style={{color:"red" , fontSize:"14px"}}></p>
     </form>
     <p style={{textAlign:"center"}}>or</p>
-    <p className="help">Don't have an account? <a href="/signup">Sign up</a></p>
+    <p className="help">Don't have an account? <a href="/signup">Sign Up</a></p>
     <p style={{textAlign:"center"}}>or</p>
     <p className="help">Want to report anonymously? <a href="/report">Report</a></p>
 		</section>

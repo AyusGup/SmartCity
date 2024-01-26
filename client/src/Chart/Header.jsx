@@ -19,7 +19,7 @@ function BasicExample(props) {
             </NavDropdown>
             <Nav.Link href="/repo">Reports</Nav.Link>
           </Nav>
-          <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px"}}>Log Out</Button>
+          <Button onClick={props.logout} style={{maxHeight:"50px" , marginRight:"10px",color:"white",backgroundColor:'blue'}}>Log Out</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
