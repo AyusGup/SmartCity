@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // problem, time of incident, latitude and longitude, feedback yeh chije daal dio -->
 const reportModel = new mongoose.Schema({
     sender:{type: mongoose.Schema.Types.ObjectId , ref:"user"},
-    problem:{type:Number},
+    problem:{type:String},
     latitude:{type:String},
     longitude:{type:String},
     complaint:{type:String},

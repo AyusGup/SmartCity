@@ -1,7 +1,7 @@
 const Report = require("../models/Report");
 const User = require("../models/User");
 
-const problem=["Lighting issues","Molestation Cases","Safety Concerns","Violence Report","Miscellaneus"];
+const problem=["Miscellaneous", "Accident", "Theft", "Robbery", "Violence", "Kidnapping", "Molestation", "Rape", "Murder", "Riot"];
 const year = [];
 const d = new Date();
 let y = d.getFullYear();
@@ -16,8 +16,8 @@ async function handleReport(req,res){
 async function handleCount(req,res){
     let pdata = [];
     let ydata = [];
-    for(let i=0;i<5;i++){
-        const data = await Report.count({problem: problem[i]});
+    for(let i=1;i<=10;i++){
+        const data = await Report.count({problem: i.toString()});
         pdata.push(data);
     }
     for(let i=0;i<10;i++){
