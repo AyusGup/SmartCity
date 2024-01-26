@@ -23,8 +23,16 @@ useEffect(() => {
   })
 },[socket]);
 
-useEffect(() => {
-  const handleUnload = async () => {
+
+  useEffect(() => {
+      console.log(numberLike);
+      updateLikeOnServer();
+  
+  }, [numberLike]);
+
+  async function updateLikeOnServer() {
+    console.log("update called")
+  
     const response = await fetch('https://citypulse.onrender.com/api/updateLike', {
       method: 'POST',
       headers: {
@@ -32,13 +40,8 @@ useEffect(() => {
       },
       body: JSON.stringify({ _id: props.id, likes: numberLike }),
     });
-  };
-
-  window.addEventListener('beforeunload', handleUnload);
-  return () => {
-    window.removeEventListener('beforeunload', handleUnload);
-  };
-}, [props.id, numberLike]);
+    console.log(response);
+  }
 function addComment(e){
    props.addComment({comment: e.target[0].value , post_id:props.id});
    e.target[0].value="";

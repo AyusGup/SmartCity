@@ -141,8 +141,9 @@ async function handleAddPost(data){
 
 async function handleUpdateLike(req,res){
     const { _id , likes } = req.body;
-    console.log(likes);
+    
     const del= await blog.findOneAndUpdate({_id: _id},{likes: likes});
+    console.log(del);
     res.json(del);
 }
 
