@@ -28,7 +28,6 @@ function ReportList(){
                     <div style={{width:"18vw",height:"auto"}}>Complaint</div>
                     <div style={{width:"2vw",marginRight:"10px"}}>Image</div>
                     <div style={{width:"2vw",marginRight:"40px"}}>Location</div>
-                    <div style={{width:"4vw"}}></div>
                 </div>
                 {
                 notes.map((noteItem, idx) => {

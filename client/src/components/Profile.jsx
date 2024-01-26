@@ -70,23 +70,23 @@ function deletePost(ele) {
       <Header logout={props.logout} />
       <div  id="message" className="alert" style={{top:"10%" ,right:"2%"}}></div>
       <div className='prompt' style={{display:"flex" ,flexDirection:"column" ,minWidth:"50%" }}>
-          <h1 style={{textAlign:"center"}}>PROFILE</h1>
+          <h1 style={{textAlign:"center",fontSize:"1.5rem",fontWeight:"bold"}}>PROFILE</h1>
           <img src= {profile.userImage === ""? avatar : profile.userImage} style={{alignSelf:"center",width:"150px" ,height:"150px" ,borderRadius:"50%"}} />
           <div>
           <hr />
-            <p>NAME:</p>
-            <input value={profile.name} onChange={(e) => handleChange(e)} name="name"/>
+            <p style={{fontSize:"1.2rem",fontWeight:"bold",marginBottom:"2px"}}>NAME:</p>
+            <input value={profile.name} onChange={(e) => handleChange(e)} name="name" style={{marginBottom:"4px"}}/>
           <hr />
-          <p>EMAIL:</p>
-            <p>{profile.email}</p>
+          <p style={{fontSize:"1.2rem",fontWeight:"bold",marginBottom:"2px"}}>EMAIL:</p>
+            <p style={{marginBottom:"4px"}}>{profile.email}</p>
           <hr />
-          <p>CONTACT:</p>
-            <input value={profile.contact} onChange={(e) => handleChange(e)} name="contact"/>
+          <p style={{fontSize:"1.2rem",fontWeight:"bold",marginBottom:"2px"}}>CONTACT:</p>
+            <input value={profile.contact} onChange={(e) => handleChange(e)} name="contact" style={{marginBottom:"4px"}}/>
           </div>
           <hr />
-          <button onClick={handleSubmit}>Update</button>
+          <button onClick={handleSubmit} style={{fontSize:"1.4rem",color:"white",fontWeight:"bold" ,backgroundColor:"#2f6bff",width:"70px",textAlign:"center",marginLeft:"45%",marginTop:"10px"}}>Update</button>
       </div>
-      <div style={{fontSize:"20px",fontWeight:"bold"}}>My Posts</div>
+      <div style={{fontSize:"2rem",fontWeight:"bold"}}>My Posts</div>
       {notes.map((noteItem) => {
           return (
             <Userposts

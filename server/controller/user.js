@@ -91,6 +91,7 @@ function sendSms(phone, loc){
     .then((message)=>console.log(message))
     .catch((err)=>console.log(err))
 }
+
 async function handleSms(req,res){
     console.log(req.query.lat)
     const loc = `https://www.google.com/maps?q=${req.query.lat},${req.query.lng}&z=${17}`;

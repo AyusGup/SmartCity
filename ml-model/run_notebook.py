@@ -2,6 +2,7 @@ from nbformat import read, write
 from nbconvert.preprocessors import ExecutePreprocessor
 
 def execute_notebook(mapping_Notebook):
+    notebook_path = 'mapping_Notebook'
     with open("mapping_Notebook.ipynb", 'r', encoding='utf-8') as notebook_file:
         notebook_content = read(notebook_file, as_version=4)
 
@@ -13,5 +14,4 @@ def execute_notebook(mapping_Notebook):
         write(notebook_content, notebook_file)
 
 if __name__ == '__main__':
-    notebook_path = 'mapping_Notebook'
     execute_notebook(notebook_path)

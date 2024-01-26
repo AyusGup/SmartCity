@@ -13,6 +13,7 @@ import logo1 from "./icons/logo1.png";
 import RideForm from "./RideForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faComment } from '@fortawesome/free-solid-svg-icons';
+import { Toaster, toast } from "react-hot-toast";
 const socket= io.connect("https://citypulse.onrender.com")
 
 function Secret(props){
@@ -56,6 +57,7 @@ function Secret(props){
 
    return(
      <div style={{display:"flex" , flexFlow:"wrap" , flexDirection:"column" , alignItems:"center" ,justifyContent:"space-evenly"}}>
+      {/* <Toaster position="top-center" reverseOrder={false} /> */}
 	    <Header logout={props.logout}/>
       <div id="main">
         <div id="mainprofile">
