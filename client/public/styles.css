@@ -462,7 +462,10 @@ footer p {
   font-size: 1.2rem;
 }
 
-
+/* Add this to your custom CSS file */
+.custom-dropdown .nav-link {
+  color: white !important;
+}
 
 
 

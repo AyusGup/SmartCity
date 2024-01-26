@@ -73,18 +73,20 @@ function deletePost(ele) {
           <h1 style={{textAlign:"center",fontSize:"1.5rem",fontWeight:"bold"}}>PROFILE</h1>
           <img src= {profile.userImage === ""? avatar : profile.userImage} style={{alignSelf:"center",width:"150px" ,height:"150px" ,borderRadius:"50%"}} />
           <div>
-          <hr />
+  
             <p style={{fontSize:"1.2rem",fontWeight:"bold",marginBottom:"2px"}}>NAME:</p>
-            <input value={profile.name} onChange={(e) => handleChange(e)} name="name" style={{marginBottom:"4px"}}/>
-          <hr />
+            <input value={profile.name} onChange={(e) => handleChange(e)} name="name" style={{marginBottom:"20px"}}/>
+  
           <p style={{fontSize:"1.2rem",fontWeight:"bold",marginBottom:"2px"}}>EMAIL:</p>
-            <p style={{marginBottom:"4px"}}>{profile.email}</p>
-          <hr />
+          <p style={{marginBottom:"20px"}}>{profile.email}</p>
+
           <p style={{fontSize:"1.2rem",fontWeight:"bold",marginBottom:"2px"}}>CONTACT:</p>
-            <input value={profile.contact} onChange={(e) => handleChange(e)} name="contact" style={{marginBottom:"4px"}}/>
+          <input value={profile.contact} onChange={(e) => handleChange(e)} name="contact" style={{marginBottom:"20px"}}/>
           </div>
-          <hr />
-          <button onClick={handleSubmit} style={{fontSize:"1.4rem",color:"white",fontWeight:"bold" ,backgroundColor:"#2f6bff",width:"70px",textAlign:"center",marginLeft:"45%",marginTop:"10px"}}>Update</button>
+     
+          <div className="flex w-[100%] justify-center">
+          <button onClick={handleSubmit} className="bg-blue-500 w-auto p-2 rounded-full">Update Info</button>
+          </div>
       </div>
       <div style={{fontSize:"2rem",fontWeight:"bold"}}>My Posts</div>
       {notes.map((noteItem) => {

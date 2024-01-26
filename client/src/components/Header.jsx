@@ -38,34 +38,38 @@ function OffcanvasExample(props) {
      return;
   }
 
+  const navbarStyle = {
+    backgroundColor: '#2c78bf', // Bootstrap's blue-500 color
+    width: "100%",
+    color: 'white',
+  };
+
   return (
-    <Navbar expand="lg" id="top" className="bg-body-tertiary bg-blue-400" sticky="top" style={{width:"100%"}}>
-      <Container>
-        <Navbar.Brand><img src={logo} className='rounded-full h-10' /></Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" >
-          <Nav className="me-auto">
-            <Nav.Link href="/secret">Blogs</Nav.Link>
-            <Nav.Link href="/report">Report</Nav.Link>
-            <NavDropdown title="Map" id="basic-nav-dropdown">
-              <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/day.html' target='_blank'>Day time</NavDropdown.Item>
-              <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html' target='_blank'>Night time</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <>
-            <Button onClick={sendSms} className='max-h-50 bg-blue-500 mr-3'>
+    <Navbar expand="lg" style={navbarStyle} sticky="top">
+    <Container>
+      <Navbar.Brand className='text-white text-[30px]'>CityPulse</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/secret" className='text-white text-lg'>Blogs</Nav.Link>
+          <Nav.Link href="/report" className='text-white text-lg'>Report</Nav.Link>
+          <NavDropdown title="Map" id="basic-nav-dropdown" className="custom-dropdown">
+            <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/day.html' target='_blank'>Day time</NavDropdown.Item>
+            <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html' target='_blank'>Night time</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <>
+          <Button onClick={sendSms} className='max-h-50 bg-blue-500 mr-3'>
             <FontAwesomeIcon icon={faExclamationTriangle} />
-            </Button>  
-            <Button onClick={props.logout} className='max-h-50 bg-blue-500 mr-3 font-bold'>Log Out</Button>
-            <Button style={{maxHeight:"50px" , marginRight:"10px"}}
-              href="/profile"
-            >
-              <FontAwesomeIcon icon={faUser} />
-            </Button>
-          </>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </Button>
+          <Button onClick={props.logout} className='max-h-50 bg-blue-500 mr-3 font-bold'>Log Out</Button>
+          <Button style={{ maxHeight: "50px", marginRight: "10px" }} href="/profile">
+            <FontAwesomeIcon icon={faUser} />
+          </Button>
+        </>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
   );
 }
 
