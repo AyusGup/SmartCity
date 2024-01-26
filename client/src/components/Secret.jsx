@@ -35,9 +35,10 @@ function Secret(props){
       method: "GET" ,
      })
      const result= await response.json();
+     
      setNotes(result);
+     
   }
-
   function addPost(Newnote){
     socket.emit("add-post" , {post:Newnote , userToken:localStorage.getItem("customToken")});
     getDB();
@@ -76,7 +77,7 @@ function Secret(props){
                 title={noteItem.title}
                 content={noteItem.content}
                 postImage={noteItem.postImage}
-                like={props.like}
+                likes={noteItem.likes}
                 addComment={props.addComment}
                 getComments={props.getComments}
               />
