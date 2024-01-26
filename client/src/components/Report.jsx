@@ -39,8 +39,8 @@ export default function App() {
     formD.current.desc = e.target[1].value;
     formD.current.problem = e.target[2].value;
     formD.current.seriousness = e.target[3].value;
-
-    const response= await fetch("https://citypulse.onrender.com/api/report",{
+    // https://citypulse.onrender.com/api/report
+    const response= await fetch("http://localhost:8000/api/report",{
       method: "POST",
       body: JSON.stringify({data:formD.current, customToken:localStorage.getItem("customToken")}) ,
       headers:{
@@ -49,7 +49,9 @@ export default function App() {
      })
     const res= await response.json();
     if(res.message === "success"){
-      await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
+      console.log(res);
+      
+      // await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
     }
     e.target.reset();
   }
