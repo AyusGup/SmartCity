@@ -430,6 +430,11 @@ footer p {
   #b{
     bottom: 80px;
   }
+  #thumbup{
+    margin-right: 300px;
+    margin-top: 10px;
+    margin-bottom: -200px;
+  }
 }
 
 .long-text {

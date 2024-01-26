@@ -71,8 +71,9 @@ function increaselike(){
       <div className="noteFooter" style={{ display: "flex", alignItems:"center"}}>
         <div>
           <button
-            style={{ color: isLiked ? 'red' : 'black',height:"43px",bottom:"5px"}}
+            style={{ color:'black',height:"43px",bottom:"5px"}}
             onClick={increaselike}
+            id="thumbup"
           >
             <FontAwesomeIcon icon={faThumbsUp} className='text-[1.8rem] pr-2'/>
             {0}
