@@ -39,7 +39,7 @@ function OffcanvasExample(props) {
   }
 
   return (
-    <Navbar expand="lg" id="top" className="bg-body-tertiary" sticky="top" style={{width:"100%"}}>
+    <Navbar expand="lg" id="top" className="bg-body-tertiary bg-blue-400" sticky="top" style={{width:"100%"}}>
       <Container>
         <Navbar.Brand><img src={logo} className='rounded-full h-10' /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
