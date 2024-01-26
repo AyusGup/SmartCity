@@ -16,10 +16,11 @@
 
 **ML Model**
 
-1) python nltk_utils.py
-2) python model.py
-3) python train.py
-4) python run.py
+1) pip install
+2) python nltk_utils.py
+3) python model.py
+4) python train.py
+5) python run.py
    
 **Solution:-**
 1) Introducing a dynamic community-centric platform, seamlessly integrating a blogging website and a ride-sharing portal. Users can share insightful blogs and initiate awareness campaigns on diverse topics, fostering a collaborative and informed community. The platform extends beyond virtual interactions by incorporating a ride-sharing feature with a focus on energy efficiency and traffic reduction. 
