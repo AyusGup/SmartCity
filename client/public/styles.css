@@ -62,8 +62,8 @@ footer p {
 
 .noteFooter{
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  width: 100%;
 }
 .note button {
   position: relative;

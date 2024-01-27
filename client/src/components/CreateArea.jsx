@@ -42,7 +42,6 @@ function CreateArea(props) {
     <div className="modal-wrapper"></div>
     <div id="createpostcover">
     <div className="createpost">
-      
       <form id="addPostForm" onSubmit={submitNote}>
       <button className="relative float-right p-2 text-xs rounded-full" onClick={props.closeModal}>
       <FontAwesomeIcon icon={faTimes} size="2x" />

@@ -34,9 +34,9 @@ function Secret(props){
   async function getDB(){
     const response= await fetch("https://citypulse.onrender.com/api",{
       method: "GET" ,
-     })
+     }) 
      const result= await response.json();
-     
+     result.reverse();
      setNotes(result);
      
   }
