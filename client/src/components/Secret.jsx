@@ -82,6 +82,7 @@ function Secret(props){
                 likes={noteItem.likes}
                 addComment={props.addComment}
                 getComments={props.getComments}
+                getProfile={props.getProfile}
               />
             );
           })}

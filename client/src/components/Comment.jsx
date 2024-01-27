@@ -2,9 +2,13 @@ import React from "react";
 import avatar from "../user.png";
 
 function Comment(props){
+  // const currentUser = props.getProfile();
+  // if(currentUser?._id == props.user_id._id){
+  //   console.log(props.user_id.username);
+  // }
+
     return (
       <>
-        
         <div id="comment_box">
           <img
             src={
