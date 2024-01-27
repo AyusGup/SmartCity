@@ -12,6 +12,20 @@ import { faExclamationTriangle, faUser } from '@fortawesome/free-solid-svg-icons
 /**/
 function OffcanvasExample(props) {
   const [loc, setLoc] = useState({});
+  const [time, setTime] = useState(new Date().getHours());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date().getHours());
+    }, 1000 * 60); // Update time every minute
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const getMapLink = () => {
+    return time < 18 ? 'https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/day.html' : 'https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html';
+  };
+
   
   function getLocation() {
     if (navigator.geolocation) {
@@ -53,10 +67,14 @@ function OffcanvasExample(props) {
         <Nav className="me-auto">
           <Nav.Link href="/secret" className='text-white text-lg'>Blogs</Nav.Link>
           <Nav.Link href="/report" className='text-white text-lg'>Report</Nav.Link>
-          <NavDropdown title="Map" id="basic-nav-dropdown" className="custom-dropdown">
+          <Nav.Link href={getMapLink()} target='_blank' className='text-white text-lg'>Map</Nav.Link>
+          {/* <NavDropdown title="Map" id="basic-nav-dropdown" className="custom-dropdown">
             <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/day.html' target='_blank'>Day time</NavDropdown.Item>
             <NavDropdown.Item href='https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html' target='_blank'>Night time</NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
+          {/* <NavDropdown title="Map" id="basic-nav-dropdown" className="custom-dropdown">
+            <NavDropdown.Item href={getMapLink()} target='_blank'>Map</NavDropdown.Item>
+          </NavDropdown> */}
         </Nav>
         <>
           <Button onClick={sendSms} className='max-h-50 bg-blue-500 mr-3'>

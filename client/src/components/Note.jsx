@@ -15,24 +15,20 @@ function Note(props) {
   const [flag,setFlag] = useState(false);
   const [numberLike,setNumberLike] = useState(props.likes);
   const [currentLike,setCurrentLike] = useState(false);
- console.log(props);
   
-useEffect(() => {
-  socket.on("recieve-comments", (data) => {
-    getComments();
-  })
-},[socket]);
+  useEffect(() => {
+    socket.on("recieve-comments", (data) => {
+      getComments();
+    })
+  },[socket]);
 
 
   useEffect(() => {
-      console.log(numberLike);
       updateLikeOnServer();
   
   }, [numberLike]);
 
   async function updateLikeOnServer() {
-    console.log("update called")
-  
     const response = await fetch('https://citypulse.onrender.com/api/updateLike', {
       method: 'POST',
       headers: {
@@ -40,7 +36,6 @@ useEffect(() => {
       },
       body: JSON.stringify({ _id: props.id, likes: numberLike }),
     });
-    console.log(response);
   }
 function addComment(e){
    props.addComment({comment: e.target[0].value , post_id:props.id});
@@ -51,7 +46,6 @@ function addComment(e){
 
 async function getComments(){
   const comment= await props.getComments(props.id);
-  console.log(comment);
   setCom(comment);
 }
 
@@ -65,7 +59,6 @@ function listenClick(){
 }
 
 function increaselike(){
-  console.log("hi i am called");
   if(currentLike===true) {
     setNumberLike(numberLike-1);
     setCurrentLike(!currentLike);
@@ -88,35 +81,37 @@ function increaselike(){
       {props.image!="" && <img src={props.postImage} />}
       <hr/>
 
-      <div className="noteFooter" style={{ display: "flex", alignItems:"center"}}>
-        <div>
-          <button
-            style={{ color:'black',height:"43px",bottom:"5px"}}
-            onClick={increaselike}
-            id="thumbup"
-          >
-            <FontAwesomeIcon icon={faThumbsUp} className='text-[1.8rem] pr-2'/>
-            {numberLike}
-          </button>
-        </div>
+      <div className="noteFooter">
+        <div className='flex flex-wrap w-full'>
+          <div className='mt-1'>
+            <button
+              style={{ color: 'black', height: '43px', display: 'flex' }}
+              onClick={increaselike}
+              id='thumbup'
+            >
+              <FontAwesomeIcon icon={faThumbsUp} className='text-[1.8rem] pr-2' />
+              {numberLike}
+            </button>
+          </div>
 
-        <div className='w-[81%]'>
-          <form onSubmit={(e) => addComment(e)} className='flex ml-[-10px]'>
-            <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-2" style={{ width: "80%", marginRight: "10px" }}>
-              <Form.Control as="textarea" placeholder="Leave a comment here" onClick={listenClick} />
+          <form onSubmit={(e) => addComment(e)} className='flex w-[80%]'>
+            <FloatingLabel controlId='floatingTextarea' label='Comments' className='mb-2 w-full mr-2'>
+              <Form.Control as='textarea' placeholder='Leave a comment here' onClick={listenClick} />
             </FloatingLabel>
-            <div>
-              <button style={{ borderRadius: "10px", width: "fit-content" }} className='mt-2 pt-8 bg-blue-500'>Submit</button>
+            <div className='mt-2'>
+              <button style={{ borderRadius: '10px', width: 'fit-content' }} className='bg-blue-500'>
+                Submit
+              </button>
             </div>
           </form>
-          </div> 
         </div>
+      </div>
       <div className='flex flex-col items-start w-[100%] mt-2'>
           {com.length && flag? com.map((noteItem, idx) => {
             if(idx<len){
               return (
                 <div key={idx} style={{display:"flex"}}>
-                  <Comment com={noteItem} />
+                  <Comment com={noteItem} getProfile={props.getProfile}/>
                 </div>
                 )
             }

@@ -8,7 +8,7 @@ function Signup(props){
 	const [otp,setOtp] = useState(0);
 	const [formD, setForm] = useState({
 		username: "",
-		contact: "",
+		contact: 0,
 		email: "",
 		password: "",
 		MyFile:""
@@ -25,9 +25,9 @@ function Signup(props){
 	});
 	}
 	const validatePhoneNumber = (phoneNumber) => {
-		// Regex pattern for 10 digits
-		const phoneRegex = /^\d{10}$/;
-		return phoneRegex.test(phoneNumber);
+		const phoneString = phoneNumber.toString();
+		const phoneRegex = /^(\d[-\s]?){10}$/;
+		return phoneRegex.test(phoneString);
 	};
 
 	function submitNote(event) {
@@ -38,14 +38,14 @@ function Signup(props){
 		document.getElementById("alert").innerHTML="*please verify your email";
 		return;
 	}
-	if (!validatePhoneNumber(formD.phone)) {
+	if (!validatePhoneNumber(formD.contact)) {
 		document.getElementById("alert").innerHTML="*Please enter a valid 10-digit phone numberl";
 		return;
 	  }
 	props.onAdd(formD);
 	setForm({
 		username: "",
-		contact: "",
+		contact: 0,
 		email: "",
 		password: "",
 		MyFile:""
@@ -102,7 +102,7 @@ function Signup(props){
 				<label htmlFor="contact">Contact</label>
 				<input id="contact"
 				 name="contact"
-				 type="te]"
+				 type="tel"
 				 autoComplete="contact" onChange={handleChange}
 				 value={formD.contact}
 				 required />

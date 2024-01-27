@@ -34,9 +34,9 @@ function Secret(props){
   async function getDB(){
     const response= await fetch("https://citypulse.onrender.com/api",{
       method: "GET" ,
-     })
+     }) 
      const result= await response.json();
-     
+     result.reverse();
      setNotes(result);
      
   }
@@ -82,6 +82,7 @@ function Secret(props){
                 likes={noteItem.likes}
                 addComment={props.addComment}
                 getComments={props.getComments}
+                getProfile={props.getProfile}
               />
             );
           })}
