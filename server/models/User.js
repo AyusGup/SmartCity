@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
         required:true
     },
     contact:{
-        type:Number,
+        type:String,
         unique:true,
         required:true
     },
