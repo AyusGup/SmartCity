@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import avatar from '../user.png';
 
 const RideForm = () => {
   const [formData, setFormData] = useState({
@@ -129,7 +130,7 @@ const RideForm = () => {
             {usersArray.map((user) => (
               <div key={user._id} className="bg-white rounded-lg overflow-hidden shadow-md flex flex-row w-full border border-black">
                 <img
-                  src={user.userImage} // Replace with the actual property containing the image URL
+                  src={user.userImage || avatar} // Replace with the actual property containing the image URL
                   alt={user.username}
                   className="w-1/3 h-24 object-cover object-center"
                 />
