@@ -20,7 +20,7 @@
         "help","assistance"
       ],
       "responses": [
-        "In case of emergency dial 011-27852203"
+        "In case of emergency dial 112"
       ]
     },
     {
@@ -41,9 +41,10 @@
         " avoid walking at night?",
         " safe path "
       ],
-      "responses": [
-        "You can enhance your safety by:\n1. Choosing well-lit routes with more foot traffic.\n2. Avoiding shortcuts through isolated areas.\n3. Using rideshare apps or public transportation during late hours. You can also use safety apps that suggest safer routes."
-      ]
+      "responses": ["Certainly , here is a link for map to identify safer areas of Delhi"
+        
+      ],
+      "link":"https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html"
     },
     {
       "tag": "ReportingIncident",
@@ -54,11 +55,16 @@
         "manhandled",
         "troubled",
         "report incident?",
-        "report a crime ?"
+        "report a crime ?",
+        "rape"
+
       ],
       "responses": [
-        "If you experience harassment or a safety incident:\n1. Trust your instincts and prioritize your safety.\n2. If safe to do so, try to remember details about the person or incident.\n3. Report the incident to the police or relevant authorities. You can also reach out to local women's support organizations for assistance."
-      ]
+        "I'm sorry to hear that you need to report a crime. Your safety is important to us. Please use the following link to report the crime:"
+      ],
+      "link" : "https://smart-city-neon.vercel.app/report"
+
+      
     },
     
     {
