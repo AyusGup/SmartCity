@@ -9,7 +9,8 @@
       ],
       "responses": [
         "Sure, here are some safety tips:\n1. Avoid walking alone in poorly lit areas.\n2. Stay aware of your surroundings.\n3. Share your location with a friend or family member.\n4. Trust your instincts. If something feels off, seek help immediately.\n5. Consider taking self-defense classes for added confidence."
-      ]
+      ],
+      "link":"https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html"
     },
     {
       "tag": "EmergencyContact",
@@ -17,10 +18,10 @@
         "emergency contact number",
         "call in case emergency?",
         "contact of nearest police station.",
-        "help","assistance"
+        "help","assistance","i need help"
       ],
       "responses": [
-        "In case of emergency dial 011-27852203"
+        "In case of emergency dial 112"
       ]
     },
     {
@@ -41,9 +42,9 @@
         " avoid walking at night?",
         " safe path "
       ],
-      "responses": [
-        "You can enhance your safety by:\n1. Choosing well-lit routes with more foot traffic.\n2. Avoiding shortcuts through isolated areas.\n3. Using rideshare apps or public transportation during late hours. You can also use safety apps that suggest safer routes."
-      ]
+      "responses": ["Certainly , here is a link for map to identify safer areas of Delhi"
+        ],
+      "link":"https://490bj8xz-5500.inc1.devtunnels.ms/ml-model/night.html"
     },
     {
       "tag": "ReportingIncident",
@@ -54,11 +55,16 @@
         "manhandled",
         "troubled",
         "report incident?",
-        "report a crime ?"
+        "report a crime ?",
+        "rape"
+
       ],
       "responses": [
-        "If you experience harassment or a safety incident:\n1. Trust your instincts and prioritize your safety.\n2. If safe to do so, try to remember details about the person or incident.\n3. Report the incident to the police or relevant authorities. You can also reach out to local women's support organizations for assistance."
-      ]
+        "I'm sorry to hear that you need to report a crime. Your safety is important to us. Please use the following link to report the crime:"
+      ],
+      "link" : "https://smart-city-neon.vercel.app/report"
+
+      
     },
     
     {
@@ -81,19 +87,19 @@
       ]
     },
     {
-      "tag": "Funny",
+      "tag": "Murder",
       "patterns": [
-        "joke",
-        "funny",
-        "joke"
+        "murder",
+        "stabbing",
+        " i heard gunshot",
+        "There is dead body"
       ],
       "responses": [
-        "Why don't scientists trust atoms? Because they make up everything!",
-        "Did you hear about the mathematician who's afraid of negative numbers? He'll stop at nothing to avoid them!",
-        "What do you call a fish with no eyes? Fsh.",
-        "Parallel lines have so much in common. It's a shame they'll never meet."
-      ]
+        "Prioritize ensuring safety first, and once safety measures are in place, proceed to report the incident using the link below."
+      ],
+      "link" : "https://smart-city-neon.vercel.app/report"   
     }
+
   ]
 }
 
