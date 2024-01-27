@@ -11,6 +11,7 @@ import Chart from "../Chart/App";
 import ReportList from "../Chart/ReportList";
 import MapPage from '../components/MapPage';
 import map from '../components/map';
+import RideForm from "./RideForm";
 
 const socket= io.connect("https://citypulse.onrender.com")
 
@@ -177,6 +178,7 @@ function Root() {
         <Route path='/secret' element={isAuthorized === 1?<Secret logout={removeSession} like={updatePost} addComment={addComment} getComments={getComments} getProfile={getProfile} upDate={updateProfile} /> : <Login onCheck={checkUser}/>} />
         <Route path="/profile" element={<Profile getProfile={getProfile} upDate={updateProfile} logout={removeSession} like={updatePost} addComment={addComment} getComments={getComments}/>} />
         <Route path="/report" element={<Report />} />
+        <Route path="/ride" element={<RideForm />} />
         <Route
           path="*"
           element={<Navigate to="/" replace />} // 'replace' replaces the current entry in the navigation history
