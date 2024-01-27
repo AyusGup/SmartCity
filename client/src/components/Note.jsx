@@ -116,7 +116,7 @@ function increaselike(){
             if(idx<len){
               return (
                 <div key={idx} style={{display:"flex"}}>
-                  <Comment com={noteItem} />
+                  <Comment com={noteItem} getProfile={props.getProfile}/>
                 </div>
                 )
             }
