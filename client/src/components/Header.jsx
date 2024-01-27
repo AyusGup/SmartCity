@@ -75,6 +75,11 @@ function OffcanvasExample(props) {
           {/* <NavDropdown title="Map" id="basic-nav-dropdown" className="custom-dropdown">
             <NavDropdown.Item href={getMapLink()} target='_blank'>Map</NavDropdown.Item>
           </NavDropdown> */}
+          {/* <div className='hidden lg:block'> */}
+          <Nav.Link href="/ride" className='text-white text-lg lg:hidden'>Ride</Nav.Link>
+{/* </div> */}
+
+          
         </Nav>
         <>
           <Button onClick={sendSms} className='max-h-50 bg-blue-500 mr-3'>

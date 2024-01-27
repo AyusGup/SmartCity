@@ -123,12 +123,12 @@ const RideForm = () => {
       </div>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       {usersArray.length > 0 && (
-        <div className="max-h-72 overflow-y-auto">
+        <div className="max-h-72">
           {/* Set max height and add overflow-y-auto to create a vertical scrollbar */}
           <h3 className="text-lg font-semibold mb-2">Matching Users</h3>
           <div className="">
             {usersArray.map((user) => (
-              <div key={user._id} className="bg-white rounded-lg overflow-hidden shadow-md flex flex-row w-full border border-black">
+              <div key={user._id} className="bg-white rounded-lg  shadow-md flex flex-row w-full border border-black">
                 <img
                   src={user.userImage || avatar} // Replace with the actual property containing the image URL
                   alt={user.username}

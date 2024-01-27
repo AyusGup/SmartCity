@@ -54,6 +54,21 @@ function Secret(props){
     })
     */
   }
+  const bodyStyles = {
+    scrollbarWidth: 'thin',
+    scrollbarColor: '#888 #f1f1f1',
+    /* For WebKit-based browsers (Chrome, Safari) */
+    WebkitScrollbar: {
+      width: '0px', /* You can adjust the width as needed */
+    },
+    WebkitScrollbarThumb: {
+      backgroundColor: '#888', /* Color of the thumb */
+      borderRadius: '4px', /* Rounded corners of the thumb */
+    },
+    WebkitScrollbarTrack: {
+      backgroundColor: '#f1f1f1', /* Color of the track */
+    },
+  };
 
    return(
      <div style={{display:"flex" , flexFlow:"wrap" , flexDirection:"column" , alignItems:"center" ,justifyContent:"space-evenly"}}>
@@ -87,7 +102,7 @@ function Secret(props){
             );
           })}
         </div>
-        <div id="chat">
+        <div id="chat" style={bodyStyles}>
           {/* <div style={{height:"60px",width:"100%",backgroundColor:"#0D6EFD",borderRadius:'10px 10px 0px 0px',display:'flex',alignItems:'center'}}>
             <img src={bot} style={{float:"left",marginLeft:"5px"}}/>
             <h3 style={{marginLeft:'5px',color:"#fff"}}>Saheli</h3>
