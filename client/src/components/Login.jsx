@@ -31,7 +31,7 @@ function Login(props) {
     const email = searchParams.get("email");
     const password = searchParams.get("password");
     
-    setFormDetails({
+    setformDetails({
       email: email ,
       password: password,
     });
