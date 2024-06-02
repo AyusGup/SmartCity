@@ -1,11 +1,12 @@
 import React,{useState} from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 function Login(props) {
     const [formDetails, setformDetails] = useState({
         email: "",
         password: ""
       });
-    
+   const searchParams = useSearchParams();
     function handleChange(event) {
         const { name, value } = event.target;
     
@@ -25,6 +26,17 @@ function Login(props) {
     });
     event.preventDefault();
     }
+
+  useEffect(() => {
+    const email = searchParams.get("email");
+    const password = searchParams.get("password");
+    
+    setFormDetails({
+      email: email ,
+      password: password,
+    });
+  }, []);
+	
   return (
     <div>
     <section className="prompt">
