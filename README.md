@@ -1,5 +1,10 @@
 # CityPulse
 
+- Test Account
+- Email: test@gmail.com
+- Password: 1234
+- https://smart-city-neon.vercel.app?email=test@gmail.com&password=1234
+
 ## To Run Project
 
 **Client**
