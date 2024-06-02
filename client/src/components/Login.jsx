@@ -6,7 +6,8 @@ function Login(props) {
         email: "",
         password: ""
       });
-   const searchParams = useSearchParams();
+    const [searchParams] = useSearchParams();
+
     function handleChange(event) {
         const { name, value } = event.target;
     
