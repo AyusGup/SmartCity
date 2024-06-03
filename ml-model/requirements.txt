@@ -8,3 +8,4 @@ nltk
 numpy
 nbformat
 nbconvert
+nltk_utils
