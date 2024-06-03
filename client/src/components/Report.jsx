@@ -63,7 +63,7 @@ export default function App() {
      })
     const res= await response.json();
     if(res.message === "success"){
-      await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/map");
+      await fetch("https://smartcity-3sz3.onrender.com/map");
       toast.success("report submitted successfully!");
     }
     setLoading(false);
