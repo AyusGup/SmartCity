@@ -7,3 +7,4 @@ torch
 nltk
 numpy
 nbformat
+nbconvert
