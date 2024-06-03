@@ -5,7 +5,7 @@ function ChatBot(){
     const [query,setQuery] = useState("");
 
     const fetchData = async()=>{
-       const response = await fetch("https://490bj8xz-5000.inc1.devtunnels.ms/predict",{
+       const response = await fetch("https://smartcity-3sz3.onrender.com/predict",{
          method:"POST",
          body:JSON.stringify({
             "message":query
