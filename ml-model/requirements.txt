@@ -6,3 +6,4 @@ jsonify
 torch
 nltk
 numpy
+nbformat
