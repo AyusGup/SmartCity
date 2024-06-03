@@ -5,3 +5,4 @@ gunicorn==19.7.1
 jsonify
 torch
 nltk
+numpy
